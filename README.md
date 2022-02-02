@@ -10,8 +10,6 @@
     - Emerson Luis Teles dos Santos
     - Guilherme Brito Vilas Boas
 
------
-
 ##Sobre o Projeto
 
 > O Projeto foi criado pensando em facilitar a vida do estudante acadêmico oferencendo a ele
