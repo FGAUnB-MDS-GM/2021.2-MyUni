@@ -10,13 +10,15 @@
     - Emerson Luis Teles dos Santos
     - Guilherme Brito Vilas Boas
 
-##Sobre o Projeto
+-----
+
+## Sobre o Projeto
 
 > O Projeto foi criado pensando em facilitar a vida do estudante acadêmico oferencendo a ele
 > uma plataforma que o servisse tanto quanto um Caderno/Agenda digital quanto um fórum 
 > para compartilhamento de informações entre os discentes
 
-###Metodologia Aplicada
+### Metodologia Aplicada
 
 > Metodologia Ágil + Uso de Framework SCRUM
 
