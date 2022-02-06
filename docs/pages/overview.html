@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="pt-br">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <title>MyUni - Visão Geral</title>
+
+    <link
+      rel="shortcut icon"
+      href="../images/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="fonts/font-awesome-4.3.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/stroke.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="../css/prettyPhoto.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../js/syntax-highlighter/styles/shCore.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../js/syntax-highlighter/styles/shThemeRDark.css"
+      media="all"
+    />
+
+    <!-- CUSTOM -->
+    <link rel="stylesheet" type="text/css" href="../css/custom.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      <i class="fa fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <script>
+      document.querySelector("html").className += "dark";
+      var mybutton = document.getElementById("myBtn");
+      window.onscroll = function () {
+        scrollFunction();
+      };
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 1000 ||
+          document.documentElement.scrollTop > 1000
+        ) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      function topFunction() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("#mode").addEventListener("click", () => {
+          document.querySelector("html").classList.toggle("dark");
+        });
+      });
+    </script>
+
+    <div id="wrapper">
+      <div id="mode">
+        <div class="dark">
+          <svg aria-hidden="true" viewBox="0 0 512 512">
+            <title>lightmode</title>
+            <path
+              fill="currentColor"
+              d="M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"
+            ></path>
+          </svg>
+        </div>
+        <div class="light">
+          <svg aria-hidden="true" viewBox="0 0 512 512">
+            <title>darkmode</title>
+            <path
+              fill="currentColor"
+              d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="container">
+        <section id="top" class="section docs-heading">
+          <div class="row">
+            <div class="col-md-12 flex flex-col items-center">
+              <img
+                class="logo-myuni"
+                src="../images/MyUni Logo.svg"
+                alt="myuni logo"
+              />
+              <div class="big-title text-center">
+                <h2>Visão do projeto e produto</h2>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+        </section>
+
+        <div class="row">
+          <div class="col-md-3">
+            <nav
+              class="docs-sidebar"
+              data-spy="affix"
+              data-offset-top="300"
+              data-offset-bottom="200"
+              role="navigation"
+            >
+              <ul class="nav">
+                <li><a href="../index.html">Pagina inicial</a></li>
+                <li>
+                  <a href="#general-vision">Visão geral do produto</a>
+                  <ul class="nav">
+                    <li>
+                      <a href="#product_declaration">Declaração do problema </a>
+                    </li>
+                    <li>
+                      <a href="#product_position"
+                        >Declaração de Posição do Produto</a
+                      >
+                    </li>
+                    <li><a href="#product_goals">Objetivos do Produto</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#software-approach"
+                    >Abordagem de desenvolvimento de software</a
+                  >
+                  <ul class="nav">
+                    <li><a href="#methodology">Metodologia</a></li>
+                    <li><a href="#process">Processo</a></li>
+                  </ul>
+                </li>
+                <li><a href="#learned-leasson">Lições aprendidas</a></li>
+                <li><a href="#references">Referências bibliográficas</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-md-9">
+            <section id="general-vision" class="welcome">
+              <div class="row">
+                <div class="col-md-12 left-align">
+                  <h2 class="dark-text">
+                    Visão geral do produto
+                    <hr />
+                  </h2>
+
+                  <h3 id="product_declaration">Declaração do problema</h3>
+                  <p>
+                    É uma queixa comum dos estudantes universitários a
+                    dificuldade na organização de suas atribuições acadêmicas
+                    por diversos motivos, como por exemplo: uma jornada dupla
+                    feita pelo estudante (estágio/trabalho + jornada acadêmica)
+                    e plataformas educacionais confusas e com funcionalidades
+                    limitadas. Outro empecilho, para a devida organização,
+                    bastante ouvido em grupos estudantis é a dificuldade de
+                    armazenar em um só lugar todos os dados e ferramentas
+                    necessárias para a organização do aluno e consequentemente
+                    sua evolução acadêmica. Uma solução para esse problema
+                    poderia ser uma plataforma de fácil utilização para que o
+                    estudante possa anotar e administrar qualquer informação
+                    pertinente, como por exemplo: contato dos professores, datas
+                    de avaliações, notas de avaliações e também contatos de
+                    monitores das matérias, etc.
+                  </p>
+
+                  <table>
+                    <tr>
+                      <td>O problema</td>
+                      <td>Dificuldade dos alunos se organizarem</td>
+                    </tr>
+                    <tr>
+                      <td>Afeta</td>
+                      <td>Estudantes</td>
+                    </tr>
+                    <tr>
+                      <td>Cujo impacto é</td>
+                      <td>
+                        Evasão escolar, desânimo quanto a graduação, transtornos
+                        de ansiedade
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Uma solução de sucesso seria</td>
+                      <td>
+                        Uma plataforma com uma interface sem poluição visual,
+                        com avisos sucintos e claros sobre avaliações, deveres,
+                        trabalhos e contatos da rede docente
+                      </td>
+                    </tr>
+                  </table>
+
+                  <h3 id="product_position">
+                    Declaração de Posição do Produto
+                  </h3>
+                  <p>
+                    Com base no problema exposto acima, foi pensado o MyUni. O
+                    MyUni será projetado para que os usuários possam administrar
+                    suas tarefas estudantis além de compartilharem informações
+                    na área colaborativa (fóruns) da plataforma.
+                  </p>
+                  <table>
+                    <tr>
+                      <td>Para</td>
+                      <td>Estudantes</td>
+                    </tr>
+                    <tr>
+                      <td>Quem</td>
+                      <td>
+                        Alunos com queixas quanto a organização de vida
+                        acadêmica
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>O MyUni</td>
+                      <td>
+                        O MyUni será uma plataforma WEB para auxiliar alunos na
+                        organização quanto atividades, provas e também um espaço
+                        de informações para que eles possam acessar
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Que</td>
+                      <td>
+                        Apresenta funcionalidades que interessam a esses alunos,
+                        como: Agenda de contato dos professores, área de criação
+                        de notas pessoais, dashboards com alguns índices sobre
+                        as turmas, matérias, professores e entre outros (os
+                        índices que interessam aos alunos serão coletados por
+                        pesquisa realizada posteriormente)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Ao contrário</td>
+                      <td>
+                        Ao contrário de Plataformas Educacionais focadas em
+                        Cadernos/Notas Digitais ou Agenda Digital
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Nosso produto</td>
+                      <td>
+                        Além da Agenda Digital e Cadernos Digitais, nosso
+                        produto terá os dashboards com os índices coletados e
+                        também uma área colaborativa onde os alunos poderão
+                        compartilhar informações sobre determinado professor,
+                        turma e matéria
+                      </td>
+                    </tr>
+                  </table>
+
+                  <h3 id="product_goals">Objetivos do Produto</h3>
+                  <p>
+                    Com a criação dessa plataforma, o objetivo desejado é trazer
+                    facilidades, diminuindo as queixas de estudantes quanto ao
+                    quesito organização e de certa forma diminuir o desgaste dos
+                    docentes ao responderem perguntas que poderiam ser sanadas
+                    se os estudantes tivessem posse da plataforma com a
+                    informação unificada em somente um lugar.
+                  </p>
+                  <p></p>
+                </div>
+              </div>
+            </section>
+
+            <section id="software-approach" class="section">
+              <div class="row">
+                <div class="col-md-12 left-align">
+                  <h2 class="dark-text">
+                    Abordagem de desenvolvimento de software
+                    <hr />
+                  </h2>
+                  <h3 id="methodology">Metodologia</h3>
+                  <p>
+                    Para o desenvolvimento do software, optamos por seguir com
+                    uma metodologia ágil, com essa abordagem, procuramos
+                    minimizar o risco de entregar um produto que não atenda as
+                    nossas expectativas, dividindo-o em curtos períodos para
+                    termos uma maior cadência de feedbacks sobre as
+                    funcionalidades que estão sendo desenvolvidas, nos
+                    possibilitando fazer adaptações em nosso produto e o
+                    deixando mais eficaz.
+                  </p>
+                  <p>
+                    Portanto, pensando em um modelo ágil, rápido, adaptável e
+                    eficaz, vamos utilizar o Framework Scrum para satisfazer as
+                    nossas necessidades. O Scrum, por sua vez, possui a divisão
+                    de 3 papéis, o primeiro papel se dirige ao Scrum Master, que
+                    é a denominação para o integrante da equipe que ajuda a
+                    todos do Time Scrum a entenderem a teoria, prática, regras e
+                    valores do Scrum , liderando a equipe utilizando as regras e
+                    processos do Scrum, o segundo papel é o Product Owner, ele
+                    se concentra na parte comercial e traduz a visão do projeto
+                    a equipe, sendo assim responsável pelo Backlog do Produto e
+                    por último, mas não menos importante, a equipe, que são os
+                    encarregados de desenvolver cada uma das funcionalidades do
+                    projeto. A aplicação da metodologia Scrum requer a
+                    realização de alguns eventos, como a criação das Sprints,
+                    que são as funcionalidades que a equipe deve trabalhar e
+                    desenvolver, a definição do backlog do produto, que é o
+                    conjunto de sprints ordenadas por prioridade, o planejamento
+                    de Sprints, que tem como objetivo discutir como será feito
+                    uma sprint a partir da definição do backlog, as daily Scrum,
+                    que são reuniões para avaliar as sprints e determinar as
+                    alterações dentro de um curto prazo, a revisão de sprints,
+                    que é uma revisão do que foi desenvolvido para as entregas
+                    futuras e a retrospectiva da sprint, que serve para avaliar
+                    o feedback, ver os erros cometidos e identificar possíveis
+                    melhorias para o projeto e implementá-las. Além disso, é
+                    importante a adoção de um método para gerenciar o fluxo e o
+                    tempo de trabalho de cada tarefa que estará sendo executada,
+                    assim o método Kanban será aplicado para organizar e
+                    equilibrar os processos fazendo com que as atividades não
+                    sejam interrompidas por outras.
+                  </p>
+
+                  <h3 id="process">Processo</h3>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Atividade</th>
+                        <th>Objetivo</th>
+                        <th>Papel</th>
+                        <th>Método</th>
+                        <th>Ferramenta</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Levantamento de requisitos</td>
+                        <td>
+                          Nesta etapa será definido todos os requisitos
+                          necessários para o funcionamento do produto.
+                        </td>
+                        <td>Product Owner</td>
+                        <td>
+                          Será levantado requisitos por meio de mapeamento de
+                          problemas que o produto se dispõe para resolver,
+                          gerando assim as funcionalidades do produto. Será
+                          criado um documento de requisitos com as regras de
+                          negócio do produto juntamente com tais funcionalidades
+                          de acordo com o mapeamento.
+                        </td>
+                        <td>Google docs, Meet, Discord.</td>
+                      </tr>
+                      <tr>
+                        <td>Organização da metodologia de desenvolvimento</td>
+                        <td>
+                          Nessa etapa será organizado todas as tarefas com o
+                          objetivo de particionar tarefas grandes em tarefas
+                          menores e criar um panorama geral dos possíveis
+                          impedimentos.
+                        </td>
+                        <td>Product Owner e Desenvolvedores</td>
+                        <td>
+                          O Product Owner organizará um backlog com as
+                          principais tarefas mapeadas e o time de
+                          desenvolvimento irá atribuir para os respectivos
+                          responsáveis por essas tarefas em suas respectivas
+                          sprints. Ao final de cada sprint será avaliado o
+                          desempenho das realizações da sprint e será moldado
+                          uma nova sprint de acordo com tal desempenho,
+                          refazendo tarefas se preciso.
+                        </td>
+                        <td>Notion</td>
+                      </tr>
+                      <tr>
+                        <td>Prototipação</td>
+                        <td>
+                          Nesta etapa será projetado o protótipo que funcionará
+                          como um guia para o desenvolvimento, de como a
+                          aplicação deverá ficar e se comportar.
+                        </td>
+                        <td>Designer</td>
+                        <td>
+                          Será criado um protótipo com as telas e fluxos,
+                          idealizando a jornada esperada do usuário durante o
+                          seu uso na aplicação.
+                        </td>
+                        <td>Figma, Miro.</td>
+                      </tr>
+                      <tr>
+                        <td>Criação dos ambientes de desenvolvimento</td>
+                        <td>
+                          Nessa etapa deve ocorrer a criação dos ambientes de
+                          produção, homologação e desenvolvimento com seus
+                          respectivos CDs.
+                        </td>
+                        <td>DevOps</td>
+                        <td>
+                          Será criado instâncias EC2 na AWS para cada ambiente
+                          de desenvolvimento, disponibilizando chaves SSH para
+                          os desenvolvedores. Além disso, será automatizado os
+                          deploys com o Github Actions, além de separar os
+                          ambientes por branches hospedadas no Github. As
+                          instâncias rodaram containers com Docker e os serviços
+                          serão organizados com docker-compose.
+                        </td>
+                        <td>
+                          AWS - EC2, Docker, Docker-compose, Github e Github
+                          Actions.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Desenvolvimento do back-end</td>
+                        <td>
+                          Nessa etapa deve ocorrer a criação dos bancos de dados
+                          e das APIs que a interface do usuário irá consumir.
+                        </td>
+                        <td>Desenvolvedores</td>
+                        <td>
+                          Será criado APIs utilizando Python e Flask que
+                          consumirão um banco de dados MongoDB. Nessa etapa
+                          também será documentado os endpoints das APIs com
+                          Swagger, visando facilitar o consumo das APIs em
+                          desenvolvimento e ao mesmo tempo criar uma
+                          documentação de campos aceitos e quais endpoints cada
+                          API oferece. Nessa etapa o pair programming será um
+                          método utilizado pela equipe de desenvolvimento, a fim
+                          de maximizar aprendizagem, organização e rendimento do
+                          desenvolvimento.
+                        </td>
+                        <td>Python, Flask, MongoDB e Swagger.</td>
+                      </tr>
+                      <tr>
+                        <td>Desenvolvimento do front-end</td>
+                        <td>
+                          Com o back-end criado, será feita a construção das
+                          interfaces idealizadas na fase de prototipação.
+                        </td>
+                        <td>Desenvolvedores</td>
+                        <td>
+                          Começará o desenvolvimento das telas e interfaces
+                          utilizando o framework React, que deverá replicar os
+                          fluxos idealizados na prototipação, e estabelecer a
+                          correta integração com API desenvolvida pelo back-end.
+                          Além disso, o pair programming estará presente nessa
+                          etapa de desenvolvimento também.
+                        </td>
+                        <td>Javascript, React Js.</td>
+                      </tr>
+                      <tr>
+                        <td>Testagem do produto</td>
+                        <td>
+                          Nessa etapa será desenvolvido testes unitários, de
+                          integração e testes automatizados, testando assim,
+                          classes, endpoints e a interface do usuário.
+                        </td>
+                        <td>Analista de testes</td>
+                        <td>
+                          Utilizando do método de cobertura de código, será
+                          criado testes para todos os escopos do código
+                          (Classes, métodos e funções) e testes de integração
+                          com Pytest. Além disso, será criado testes
+                          automatizados com Selenium.
+                        </td>
+                        <td>Pytest e Selenium.</td>
+                      </tr>
+                      <tr>
+                        <td>Criação de ambiente de análise de dados</td>
+                        <td>
+                          Nessa etapa será criado o ambiente para análise de
+                          dados com objetivo de criar dashboards com dados dos
+                          usuários.
+                        </td>
+                        <td>Desenvolvedores</td>
+                        <td>
+                          Será integrado o Metabase com o banco de dados da
+                          aplicação e será criado dashboards de análise de
+                          dados.
+                        </td>
+                        <td>Metabase</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+
+            <section id="learned-leasson" class="section">
+              <div class="row">
+                <div class="col-md-12 left-align">
+                  <h2 class="dark-text">
+                    Lições aprendidas
+                    <hr />
+                  </h2>
+                  <h3>Unidade 1</h3>
+                  <p>
+                    Conhecimento das diversas abordagens que um projeto de
+                    Software pode ter como base e suas diferenças, prós e
+                    contras, assim como, a escolha adequada tendo em vista a
+                    complexidade do projeto, entre outras características que
+                    podem ajudar a decidir a abordagem mais adequada
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="references" class="section">
+              <div class="row">
+                <div class="col-md-12 left-align">
+                  <h2 class="dark-text">
+                    Referências bibliográficas
+                    <hr />
+                  </h2>
+                  <ol>
+                    <li>
+                      Sommerville, Ian Engenharia de software/ Ian Sommerville;
+                      tradução Luiz Cláudio Queiroz; revisão técnica Fábio Levy
+                      Siqueira. -- 10. ed. -- São Paulo: Pearson Education do
+                      Brasil, 2018. Título original: Software engineering ISBN
+                      978-65-5011-048-2 1. Engenharia de software I. Siqueira,
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/retina.js"></script>
+    <script src="../js/jquery.fitvids.js"></script>
+    <script src="../js/wow.js"></script>
+    <script src="../js/jquery.prettyPhoto.js"></script>
+
+    <!-- CUSTOM PLUGINS -->
+    <script src="../js/custom.js"></script>
+    <script src="../js/main.js"></script>
+
+    <script src="../js/syntax-highlighter/scripts/shCore.js"></script>
+    <script src="../js/syntax-highlighter/scripts/shBrushXml.js"></script>
+    <script src="../js/syntax-highlighter/scripts/shBrushCss.js"></script>
+    <script src="../js/syntax-highlighter/scripts/shBrushJScript.js"></script>
+  </body>
+</html>
