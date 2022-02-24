@@ -62,7 +62,6 @@
     </button>
 
     <script>
-      document.querySelector("html").className += "dark";
       var mybutton = document.getElementById("myBtn");
       window.onscroll = function () {
         scrollFunction();
@@ -164,6 +163,7 @@
                   </ul>
                 </li>
                 <li><a href="#requirements">Requisitos</a></li>
+
                 <li><a href="#learned-leasson">Lições aprendidas</a></li>
                 <li><a href="#references">Referências bibliográficas</a></li>
               </ul>
@@ -520,42 +520,144 @@
                   <h3>Requisitos Funcionais:</h3>
                   <ul class="list-disc">
                     <li>
-                      <h4>RF1: AGENDA</h4>
-                      <ul class="list-circ">
-                        <li>check-list do requisito → ex:</li>
-                        <li>endpoint no backend</li>
-                        <li>estrutura do frontend</li>
-                      </ul>
+                      <h4>
+                        RF01: O usuário deve ser capaz de cadastrar uma conta de
+                        usuário em nosso sistema.
+                      </h4>
                     </li>
-                    <li><h4>RF2: CADERNOS DIGITAIS</h4></li>
-                    <li><h4>RF3: TODO LIST</h4></li>
-                    <li><h4>RF4: CRONOGRAMA DE MONITORIA</h4></li>
-                    <li><h4>RF5: CONTATOS DO PROFESSOR POR DISCIPLINA</h4></li>
-                    <li><h4>RF6: ALERTA DE EVENTOS</h4></li>
                     <li>
-                      <h4>RF7: FÓRUM DE TROCA DE INFORMAÇÕES PARA ALUNOS</h4>
+                      <h4>
+                        RF02: O usuário deve ser capaz de alterar seus dados
+                        cadastrais.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF03: O usuário deve ser capaz de excluir sua conta de
+                        usuário em nosso sistema.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF04: O usuário deve ser capaz de cadastrar um evento na
+                        agenda.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF05: O usuário deve ser capaz de excluir qualquer
+                        evento já cadastrado anteriormente pelo mesmo.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF06: O usuário deve ser capaz de consultar na agenda
+                        seus eventos agendados.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF07: O usuário deve ser capaz de alterar qualquer
+                        evento cadastrado na agenda pelo mesmo.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF08: O usuário deve ser capaz de cadastrar anotações
+                        nos cadernos digitais.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF09: O usuário deve ser capaz de visualizar as
+                        anotações salvas feitas nos cadernos digitais.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF10: O usuário deve ser capaz de alterar qualquer
+                        anotação feita nos cadernos digitais.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF11: O usuário deve ser capaz de excluir qualquer
+                        anotação feita nos cadernos digitais.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF12: O usuário deve ser capaz de cadastrar uma tarefa
+                        em sua lista de tarefas.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF13: O usuário deve ser capaz de consultar as tarefas
+                        cadastradas anteriormente na lista de tarefas.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF14: O usuário deve ser capaz de excluir qualquer
+                        tarefa cadastrada em sua lista de tarefas.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF15: O usuário deve ser capaz de alterar qualquer
+                        tarefa já cadastrada em sua lista de tarefas.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF16: O usuário deve ser capaz de enviar mensagens no
+                        fórum das disciplinas.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RF17: O usuário deve ser capaz de excluir qualquer
+                        mensagem enviada pelo mesmo no fórum.
+                      </h4>
                     </li>
                   </ul>
                   <h3>Requisitos Não Funcionais:</h3>
                   <ul class="list-disc">
-                    <li><h4>RFN1: RESPONSIVO E ADAPTATIVO</h4></li>
                     <li>
                       <h4>
-                        RFN2: A APLICAÇÃO PODERÁ SER ACESSADA PELO CHROME,
-                        INTERNET EXPLORER/EDGE, FIREFOX E OPERA
-                      </h4>
-                    </li>
-                    <li>
-                      <h4>RFN3: TODAS AS FUNCIONALIDADES SERÃO GRATUITAS</h4>
-                    </li>
-                    <li>
-                      <h4>
-                        RFN4: A APLICAÇÃO SERÁ ENTREGUE EM UMA PLATAFORMA WEB
+                        RNF01: O sistema deve ser responsivo e adaptativo.
                       </h4>
                     </li>
                     <li>
                       <h4>
-                        RFN4: A APLICAÇÃO SERÁ ENTREGUE EM UMA PLATAFORMA WEB
+                        RNF02: A aplicação poderá ser acessada pelo Chrome,
+                        internet Explorer/Edge, Firefox e Opera.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>RNF03: Todas as funcionalidades serão gratuitas.</h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RNF04: A aplicação será entregue em uma plataforma web.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RNF04: A aplicação será entregue em uma plataforma web.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RNF05: A aplicação terá uma persistência de dados feito
+                        no MongoDB.
+                      </h4>
+                    </li>
+                    <li>
+                      <h4>
+                        RNF06: O Sistema deve estar completo e funcional no dia
+                        28 de abril.
                       </h4>
                     </li>
                   </ul>
