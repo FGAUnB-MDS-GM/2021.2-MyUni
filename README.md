@@ -4,6 +4,7 @@
 
 > Projeto Realizado do Curso de Engenharia de Software da Universidade de Brasília (UnB-Gama)
 
+> A documentação pode ser acessada no seguinte [link](https://fgaunb-mds-gm.github.io/2021.2-MyUni/)
 - Integrantes
     - Bernardo Chaves Pissutti
     - Delziron Braz de Lima
@@ -15,7 +16,10 @@
     - Entrega
       1: [Documento de visão do produto e projeto](https://docs.google.com/document/d/1YgG6j5RnJfe0_Z228DQ8FHzL6BzVVosI9Sn-IhCIpB0/edit?usp=sharing)
       e [video de apresentação do produto e projeto](https://drive.google.com/file/d/1gNfu6XOg57-RpsbdVwmMPbsJPnlplmXa/view?usp=sharing)
-
+    - Entrega 2:
+      - [Quadro Canvas MVP](https://miro.com/app/board/uXjVOKONjxw=/?invite_link_id=450609391756)
+      - [Video de Apresentação da Entrega](https://youtu.be/M_rSeqivSjI)
+      - [Quadro Kanban](https://www.notion.so/ba33c89d295f495d89f795947d16eb17?v=c7e0b42840dc424dadeba8d12b949663)
 -----
 
 ## Sobre o Projeto
