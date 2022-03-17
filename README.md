@@ -41,7 +41,7 @@
 
 - Back-End:
     - [Python](https://docs.python.org/pt-br/3/library/index.html)
-        - [Framework Flask](https://flask-ptbr.readthedocs.io/en/latest/)
+        - [Framework FastAPI](https://fastapi.tiangolo.com/)
 
 - Front-End:
     - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
