@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  myuni_api:
+    container_name: myuni_api
+    build: .
+    ports:
+      - "8000:8000"
+    networks:
+      - api_network
+    volumes:
+      - .:/code
+    depends_on:
+      - myuni_db
+  myuni_db:
+    container_name: myuni_db
+    image: mongo:5.0.2
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: myuni
+      MONGO_INITDB_ROOT_PASSWORD: myuni
+    volumes:
+      - mongo_volume:/data/db
+    networks:
+      - api_network
+
+networks:
+  api_network:
+
+volumes:
+  mongo_volume:
