@@ -62,7 +62,6 @@
     </button>
 
     <script>
-      document.querySelector("html").className += "dark";
       var mybutton = document.getElementById("myBtn");
       window.onscroll = function () {
         scrollFunction();
@@ -164,6 +163,18 @@
                   </ul>
                 </li>
                 <li><a href="#requirements">Requisitos</a></li>
+                <li>
+                  <a href="#overview-project"
+                  >Visão Geral do Projeto</a
+                  >
+                  <ul class="nav">
+                    <li><a href="#organization">Organização do Projeto</a></li>
+                    <li><a href="#iterations">Planejamento das Fases e/ou Iterações do Projeto</a></li>
+                    <li><a href="#comunication">Matriz de Comunicação</a></li>
+                    <li><a href="#warning-management">Gerenciamento de Riscos</a></li>
+                    <li><a href="#replaning">Critérios de Replanejamento</a></li>
+                  </ul>
+                </li>
                 <li><a href="#learned-leasson">Lições aprendidas</a></li>
                 <li><a href="#references">Referências bibliográficas</a></li>
               </ul>
@@ -306,13 +317,14 @@
                   <h3 id="methodology">Metodologia</h3>
                   <p>
                     Para o desenvolvimento do software, optamos por seguir com
-                    uma metodologia ágil, com essa abordagem, procuramos
+                    uma metodologia ágil, com essa abordagem, procuramos focar
+                    no funcionamento do software em si, por conseguinte,
                     minimizar o risco de entregar um produto que não atenda as
                     nossas expectativas, dividindo-o em curtos períodos para
                     termos uma maior cadência de feedbacks sobre as
                     funcionalidades que estão sendo desenvolvidas, nos
-                    possibilitando fazer adaptações em nosso produto e o
-                    deixando mais eficaz.
+                    possibilitando fazer adaptações em nosso produto, logo tendo
+                    maior respostas a mudanças.
                   </p>
                   <p>
                     Portanto, pensando em um modelo ágil, rápido, adaptável e
@@ -346,7 +358,31 @@
                     equilibrar os processos fazendo com que as atividades não
                     sejam interrompidas por outras.
                   </p>
-
+                  <p>
+                    Assim, a equipe procura se manter fiel a filosofia por trás
+                    dos métodos ágeis, que é refletida no manifesto ágil, que
+                    foi acordado por muitos dos principais desenvolvedores
+                    desses métodos. Esse manifesto afirma:
+                  </p>
+                  <ul class="list-disc">
+                    <li>
+                      Estamos descobrindo melhores maneiras de desenvolver
+                      softwares, fazendo-o e ajudando outros a fazê-lo.
+                    </li>
+                    <li>
+                      Através desse trabalho, valorizamos mais: Indivíduos e
+                      interações do que processos e ferramentas Software em
+                      funcionamento do que documentação abrangente
+                    </li>
+                    <li>
+                      Colaboração do cliente do que negociação de contrato
+                    </li>
+                    <li>Respostas a mudanças do que seguir um plano</li>
+                    <li>
+                      Ou seja, embora itens à direita sejam importantes,
+                      valorizamos mais os que estão à esquerda.
+                    </li>
+                  </ul>
                   <h3 id="process">Processo</h3>
                   <table>
                     <thead>
@@ -442,7 +478,7 @@
                         </td>
                         <td>Desenvolvedores</td>
                         <td>
-                          Será criado APIs utilizando Python e Flask que
+                          Será criado APIs utilizando Python e FastAPI que
                           consumirão um banco de dados MongoDB. Nessa etapa
                           também será documentado os endpoints das APIs com
                           Swagger, visando facilitar o consumo das APIs em
@@ -453,7 +489,7 @@
                           de maximizar aprendizagem, organização e rendimento do
                           desenvolvimento.
                         </td>
-                        <td>Python, Flask, MongoDB e Swagger.</td>
+                        <td>Python, FastAPI, MongoDB e Swagger.</td>
                       </tr>
                       <tr>
                         <td>Desenvolvimento do front-end</td>
@@ -513,55 +549,310 @@
             <section id="requirements" class="section">
               <div class="row">
                 <div class="col-md-12 left-align">
-                  <h2 class="dark-text">
+                  <h1 class="dark-text">Escopo Do Produto</h1>
+                  <hr />
+                  <h4 class="dark-text">
                     Requisitos
                     <hr />
-                  </h2>
+                  </h4>
                   <h3>Requisitos Funcionais:</h3>
-                  <ul class="list-disc">
-                    <li>
-                      <h4>RF1: AGENDA</h4>
-                      <ul class="list-circ">
-                        <li>check-list do requisito → ex:</li>
-                        <li>endpoint no backend</li>
-                        <li>estrutura do frontend</li>
-                      </ul>
-                    </li>
-                    <li><h4>RF2: CADERNOS DIGITAIS</h4></li>
-                    <li><h4>RF3: TODO LIST</h4></li>
-                    <li><h4>RF4: CRONOGRAMA DE MONITORIA</h4></li>
-                    <li><h4>RF5: CONTATOS DO PROFESSOR POR DISCIPLINA</h4></li>
-                    <li><h4>RF6: ALERTA DE EVENTOS</h4></li>
-                    <li>
-                      <h4>RF7: FÓRUM DE TROCA DE INFORMAÇÕES PARA ALUNOS</h4>
-                    </li>
-                  </ul>
+
+                    <table>
+                      <thead>
+                        <td>Épicos</td>
+                        <td>Funcionalidades</td>
+                        <td>Histórias</td>
+                        <td>Prioridades</td>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td rowspan="3">Usuário</td>
+                        <td rowspan="3">Autenticação</td>
+                        <td>RF01: O usuário deve ser capaz de cadastrar uma conta de usuário em nosso sistema.</td>
+                        <td>Alto</td>
+                      </tr>
+                      <tr>
+                        <td>RF02: O usuário deve ser capaz de alterar seus dados cadastrais.
+                        </td>
+                        <td>Alto</td>
+                      </tr>
+                      <tr>
+                        <td>RF03: O usuário deve ser capaz de excluir sua conta de usuário em nosso sistema.
+                        </td>
+                        <td>Alto</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="4">Agenda</td>
+                        <td rowspan="4">Gerenciamento de Eventos</td>
+                        <td>RF04: O usuário deve ser capaz de cadastrar um evento na agenda.</td>
+                        <td>Baixo</td>
+                      </tr>
+                      <tr>
+                        <td>RF05: O usuário deve ser capaz de excluir qualquer evento já cadastrado anteriormente pelo mesmo.
+                        </td>
+                        <td>Baixo</td>
+                      </tr>
+                      <tr>
+                        <td>RF06: O usuário deve ser capaz de consultar na agenda seus eventos agendados.
+                        </td>
+                        <td>Baixo</td>
+                      </tr>
+                      <tr>
+                        <td>RF07: O usuário deve ser capaz de alterar qualquer evento cadastrado na agenda pelo mesmo.
+                        </td>
+                        <td>Baixo</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="4">Cadernos Digitais</td>
+                        <td rowspan="4">Gerenciamento de Cadernos</td>
+                        <td>RF08: O usuário deve ser capaz de cadastrar anotações nos cadernos digitais.</td>
+                        <td>Médio</td>
+                      </tr>
+                      <tr>
+                        <td>RF09: O usuário deve ser capaz de visualizar as anotações salvas feitas nos cadernos digitais.
+                        </td>
+                        <td>Médio</td>
+                      </tr>
+                      <tr>
+                        <td>RF10: O usuário deve ser capaz de alterar qualquer anotação feita nos cadernos digitais.
+                        </td>
+                        <td>Médio</td>
+                      </tr>
+                      <tr>
+                        <td>RF11: O usuário deve ser capaz de excluir qualquer anotação feita nos cadernos digitais.
+                        </td>
+                        <td>Médio</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="4">Lista de Tarefas</td>
+                        <td rowspan="4">Gerenciamento de Tarefas
+                        </td>
+                        <td>RF12: O usuário deve ser capaz de cadastrar uma tarefa em sua lista de tarefas.</td>
+                        <td>Alto</td>
+                      </tr>
+                      <tr>
+                        <td>RF13: O usuário deve ser capaz de consultar as tarefas cadastradas anteriormente na lista de tarefas.
+                        </td>
+                        <td>Alto</td>
+                      </tr>
+                      <tr>
+                        <td>RF14: O usuário deve ser capaz de excluir qualquer tarefa cadastrada em sua lista de tarefas.
+                        </td>
+                        <td>Alto</td>
+                      </tr>
+                      <tr>
+                        <td>RF15: O usuário deve ser capaz de alterar qualquer tarefa já cadastrada em sua lista de tarefas.
+                        </td>
+                        <td>Alto</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2">Fórum de Disciplinas</td>
+                        <td rowspan="2">Gerenciamento de Fórum</td>
+                        <td>RF16: O usuário deve ser capaz de enviar mensagens no fórum das disciplinas.</td>
+                        <td>Alto</td>
+                      </tr>
+                      <tr>
+                        <td>RF17: O usuário deve ser capaz de excluir qualquer mensagem enviada pelo mesmo no fórum.
+                        </td>
+                        <td>Alto</td>
+                      </tr>
+                      </tbody>
+                    </table>
                   <h3>Requisitos Não Funcionais:</h3>
-                  <ul class="list-disc">
-                    <li><h4>RFN1: RESPONSIVO E ADAPTATIVO</h4></li>
-                    <li>
-                      <h4>
-                        RFN2: A APLICAÇÃO PODERÁ SER ACESSADA PELO CHROME,
-                        INTERNET EXPLORER/EDGE, FIREFOX E OPERA
-                      </h4>
-                    </li>
-                    <li>
-                      <h4>RFN3: TODAS AS FUNCIONALIDADES SERÃO GRATUITAS</h4>
-                    </li>
-                    <li>
-                      <h4>
-                        RFN4: A APLICAÇÃO SERÁ ENTREGUE EM UMA PLATAFORMA WEB
-                      </h4>
-                    </li>
-                    <li>
-                      <h4>
-                        RFN4: A APLICAÇÃO SERÁ ENTREGUE EM UMA PLATAFORMA WEB
-                      </h4>
-                    </li>
-                  </ul>
+                  
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Requisitos de Produto</td>
+                        <td>Requisitos de Usabilidade</td>
+                        <td>Todas as funcionalidades serão gratuitas.</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="6">Requisitos Organizacionais</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="3">Processos de Desenvolvimento</td>
+                      </tr>
+                      <tr>
+                        <td>A aplicação terá uma persistência de dados feito no MongoDB.</td>
+                      </tr>
+                      <tr>
+                        <td>O sistema deve ser responsivo e adaptativo.</td>
+                      </tr>
+                      <tr>
+                        <td>Processos Operacionais</td>
+                        <td>A aplicação será entregue em uma plataforma web.
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Requisitos de Ambiente</td>
+                        <td>A aplicação poderá ser acessada pelo Chrome, internet Explorer/Edge, Firefox e Opera.</td>
+                      </tr>
+                      <tr>
+                        <td>Requisitos Externos</td>
+                        <td>Requisitos Regulatórios</td>
+                        <td>O sistema deve estar completo e funcional no dia 28 de abril.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h3>Mínimo Produto Viável (MVP)</h3>
+                  <p class="text-justify">Analisando os requisitos apresentados na lista anterior, o software deverá satisfazer todos os requisitos não funcionais e apresentar no mínimo os seguintes requisitos funcionais: RF01, RF02, RF03,RF03, RF05, RF06, RF07, RF08, RF09, RF10, RF11, RF12, RF13, RF14, RF15, RF16 e RF17.
+                  </p>
                 </div>
               </div>
             </section>
+            <section id="overview-project" class="section">
+              <div class="row">
+                <div class="col-md-12 left-align">
+                  <h2 class="dark-text">
+                    Visão Geral do Projeto
+                  </h2>
+                  <hr/>
+                  <section id="organization" class="section">
+                    <h3>Organização do Projeto</h3>
+                    <table>
+                      <thead>
+                        <td>Papel</td>
+                        <td>Atribuições</td>
+                        <td>Responsável</td>
+                        <td>Participantes</td>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>Desenvolvedor</td>
+                        <td>Codificar o produto, codificar testes unitários, realizar refatoração</td>
+                        <td>Dion</td>
+                        <td>Bernardo, Guilherme, Emerson, Delziron</td>
+                      </tr>
+                      <tr>
+                        <td>Dono do Produto</td>
+                        <td>Atualizar o escopo do produto, organizar o escopo das sprints, validar as entregas</td>
+                        <td>Guilherme</td>
+                        <td>Bernardo, Dion, Emerson, Delziron</td>
+                      </tr>
+                      <tr>
+                        <td>Analista de Qualidade</td>
+                        <td>Garantir a qualidade do produto, garantir o cumprimento do conceito de pronto, realizar inspeções de código</td>
+                        <td>Emerson</td>
+                        <td>Bernardo, Guilherme, Dion, Delziron</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </section>
+                  <hr />
+                  <section id="iterations" class="section">
+                    <h3>Planejamento das Fases e/ou Iterações do Projeto</h3>
+                    <table>
+                      <thead>
+                      <td>Sprint</td>
+                      <td>Produto (Entrega)</td>
+                      <td>Data de Início</td>
+                      <td>Data Prevista de Fim</td>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>Sprint 1</td>
+                        <td>Definição do Produto</td>
+                        <td>18/01/2022</td>
+                        <td>03/02/2022</td>
+                      </tr>
+                      <tr>
+                        <td>Sprint 2</td>
+                        <td>MVP e Planejamento do Projeto</td>
+                        <td>08/02/22</td>
+                        <td>24/02/22</td>
+                      </tr>
+                      <tr>
+                        <td>Sprint 3</td>
+                        <td>Aprendizagem das tecnologias escolhidas no projeto, definição de arquitetura e codificação da interface dos RF16 e RF17</td>
+                        <td>01/03/22</td>
+                        <td>17/03/22</td>
+                      </tr>
+                      <tr>
+                        <td>Sprint 4</td>
+                        <td>Codificação dos requisitos funcionais: RF01, RF02, RF03, RF11, RF12, RF13, RF14, RF15</td>
+                        <td>17/03/22</td>
+                        <td>07/04/22</td>
+                      </tr>
+                      <tr>
+                        <td>Sprint 5</td>
+                        <td>Codificação dos requisitos:RF04, RF05, RF06, RF07, RF08, RF09, RF10</td>
+                        <td>07/04/22</td>
+                        <td>12/04/2022</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </section>
+                  <hr/>
+                  <section id="comunication" class="section">
+                    <h3>Matriz de Comunicação</h3>
+                    <table style="width: 100%">
+                      <thead>
+                        <td>Descrição</td>
+                        <td>Área/Envolvidos</td>
+                        <td>Periodicidade</td>
+                        <td>Produtos Gerados</td>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>Acompanhamento das Atividades em Andamento</td>
+                        <td>Equipe do Projeto</td>
+                        <td>Semanal</td>
+                        <td>
+                          <ul>
+                            <li>Ata de Reunião</li>
+                            <li>Relatório de Situação do Projeto</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Acompanhamento dos riscos</td>
+                        <td>Equipe do Projeto</td>
+                        <td>Quinzenal</td>
+                        <td>
+                          <ul>
+                            <li>Ata de reunião</li>
+                            <li>Relatório de Situação do Projeto</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Comunicar Situação do Projeto</td>
+                        <td>
+                          <ul>
+                            <li>Equipe do Projeto</li>
+                            <li>Professor da Disciplina</li>
+                          </ul>
+                        </td>
+                        <td>Semanal</td>
+                        <td>
+                          <ul>
+                            <li>Ata de Reunião</li>
+                            <li>Relatório de Situação do Projeto</li>
+                          </ul>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </section>
+                  <hr />
+                  <section class="section" id="warning-management">
+                    <h3>Gerenciamento de Riscos</h3>
+                    <ul>
+                      <li class="list-inside"> Como no cadastro de usuários existirá distinção de tipos de usuários, existe o risco de criação de diversos usuários por um mesmo agente, com a finalidade de obter acessos indevidos em diversas áreas da aplicação, como áreas direcionadas aos professores.</li>
+                      <li class="list-inside">Tentativas de login repetitivas podem dar acesso para agentes indevidos, por meio de scripts de tentativa de acertos de senha.</li>
+                    </ul>
+                  </section>
+                  <hr/>
+                  <section class="section" id="replaning">
+                    <h3>Critérios de Replanejamento</h3>
+                    <p class="text-justify">Agendar uma reunião com a equipe para planejar uma nova alternativa de resolução do problema encontrado, apresentar a resolução para o professor para que ele analise se a resolução é viável e pode ser executada dentro do prazo.
+                    </p>
+                  </section>
+                </div>
+              </div>
+            </section>
+
             <section id="learned-leasson" class="section">
               <div class="row">
                 <div class="col-md-12 left-align">
@@ -576,6 +867,18 @@
                     contras, assim como, a escolha adequada tendo em vista a
                     complexidade do projeto, entre outras características que
                     podem ajudar a decidir a abordagem mais adequada
+                  </p>
+                  <h3>Unidade 2</h3>
+                  <p>
+                    Uma lição importante aprendida nessa unidade é a organização, tanto da equipe quanto do trabalho. O
+                    conteúdo de engenharia de requisitos corroborou significativamente para desenvolvimento e
+                    organização do projeto e da equipe, uma vez que as disciplinas compostas por esse conteúdo embarcam
+                    sobretudo na organização e agilidade da equipe. Além disso, tendo em vista a aprendizagem técnica da
+                    unidade, a utilização prática do método Kanban de organização de backlog, permitiu uma melhor
+                    assimilação desse conteúdo que já tinha sido estudado na unidade 1.
+                  </p>
+                  <h3>Unidade 3</h3>
+                  <p>A aplicabilidade dos padrões de projetos foi melhor compreendida pela equipe.
                   </p>
                 </div>
               </div>
@@ -610,11 +913,9 @@
     <script src="../js/jquery.fitvids.js"></script>
     <script src="../js/wow.js"></script>
     <script src="../js/jquery.prettyPhoto.js"></script>
-
     <!-- CUSTOM PLUGINS -->
     <script src="../js/custom.js"></script>
     <script src="../js/main.js"></script>
-
     <script src="../js/syntax-highlighter/scripts/shCore.js"></script>
     <script src="../js/syntax-highlighter/scripts/shBrushXml.js"></script>
     <script src="../js/syntax-highlighter/scripts/shBrushCss.js"></script>
