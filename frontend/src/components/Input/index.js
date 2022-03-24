@@ -1,15 +1,21 @@
-import "./styles.css";
-
-function Input({ tipo, placeholder, titulo }) {
+import "./styles.scss";
+function Input({ type, placeholder, title, value, onChange }) {
   return (
-    <>
-      <label>{titulo}</label>
+    <div className="InputContainer">
+      <label className="InputContainer_label">{title}</label>
       <input
-        className="InputContainer"
-        type={tipo}
+        className="InputContainer_input"
+        type={type}
         placeholder={placeholder}
       ></input>
-    </>
+    </div>
   );
 }
+Input.defaultProps = {
+  type: "text",
+  placeholder: "",
+  title: "",
+  value: "",
+  onChange: () => {},
+};
 export default Input;

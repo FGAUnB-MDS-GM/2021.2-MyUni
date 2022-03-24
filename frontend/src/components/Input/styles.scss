@@ -1,0 +1,22 @@
+.InputContainer {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  align-items: flex-start;
+
+  &_input {
+    width: 16rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+    background: #f0f0f0;
+    outline: none;
+    border: 0;
+  }
+
+  &_label {
+    color: #646464;
+    margin: 0 0.5rem;
+    font-size: 1.3em;
+  }
+}
