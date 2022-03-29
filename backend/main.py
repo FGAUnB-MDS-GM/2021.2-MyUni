@@ -5,10 +5,12 @@ from fastapi.openapi.utils import get_openapi
 from dotenv import load_dotenv
 
 from controllers.forum_controllers import forum_router
+from controllers.user_controller import user_router
 
 
 app = FastAPI()
 app.include_router(forum_router)
+app.include_router(user_router)
 
 
 @app.get("/", include_in_schema=False)
