@@ -6,6 +6,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  &_mobileMode{
+    display: none;
+  }
   &_section {
     display: flex;
     flex-direction: column;
@@ -25,6 +28,26 @@
       width: 42rem;
       color: #646464;
       filter: grayscale(1) opacity(0.9);
+    }
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  .loginPage {
+    flex-direction: column;
+    background-position: center;
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .loginPage{
+    justify-content: center;
+    &_section{
+      display: none;
+    }
+    &_mobileMode{
+      display: flex;
     }
   }
 }
