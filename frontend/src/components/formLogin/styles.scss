@@ -3,12 +3,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: space-evenly;
   background-color: white;
   height: 26rem;
   width: 22rem;
-  border-radius: 1rem;
-  padding-top: 4rem;
+  border-radius: 0.5rem;
+  &_logo {
+    width: 10rem;
+  }
   &_title {
     color: #646464;
   }
@@ -17,5 +19,9 @@
     font-size: 0.9em;
     font-weight: 600;
     text-align: center;
+  }
+  &_group {
+    display: flex;
+    flex-direction: column;
   }
 }
