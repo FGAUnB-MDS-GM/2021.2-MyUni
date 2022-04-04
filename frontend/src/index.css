@@ -5,6 +5,7 @@
   outline: none;
   border: 0;
   text-decoration: none;
+  background: none;
 }
 body {
   font-family: "Nunito", sans-serif;
@@ -12,7 +13,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: content-box;
 }
-
+button {
+  cursor: pointer;
+}
 code {
   font-family: "Nunito", sans-serif;
 }
