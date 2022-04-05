@@ -5,8 +5,9 @@
     align-items: center;
     justify-content: space-evenly;
     background-color: white;
-    height: 30rem;
-    width: 38rem;
+    height: 28rem;
+    width: 37rem;
+    gap: 0.3rem;
     border-radius: 0.5rem;
     &_logo {
       width: 10rem;
@@ -21,14 +22,12 @@
       text-align: center;
     }
     &_group {
-      display: flex;
-      justify-content: space-around;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
     }
     &_row {
-      justify-content: space-evenly;
-      display: flex;
-      flex-direction: row;
+      grid-column: 1/3;
     }
-  }
+}
   

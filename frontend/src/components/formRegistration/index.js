@@ -10,22 +10,18 @@ function FormRegistration() {
     return (
       <form className="formRegistration">
         <h1 className="formRegistration_title">Faça seu Cadastro!</h1>
-        <div className="formRegistration_group">
-          <div className="formRegistration_row">
-            <Input type="text" title="Nome:" placeholder="José" />
-            <Input type="text" title="Sobrenome:" placeholder="Silva" />
-          </div>
+        <div className="formRegistration_group"> 
+          <Input type="text" title="Nome:" placeholder="José" />
+          <Input type="text" title="Sobrenome:" placeholder="Silva" />
           <Input type="text" title="Matricula:" placeholder="193239092" />
-          <Input type="email" title="Email:" placeholder="aluno@aluno.com" />
-          <select name="Curso">
+          <Input type="email" title="Email:" placeholder="aluno@gmail.com" />
+          <select className = "formRegistration_row" name="Curso">
             <option value="valor1">Valor 1</option>
-            <option value="valor2" selected>Valor 2</option>
+            <option value="valor2">Valor 2</option>
             <option value="valor3">Valor 3</option>
-          </select> 
-          <div className = "formRegistration_row" >
-            <Input type="password" title="Senha:" placeholder="********" />
-            <Input type="password" title="Confirmar senha:" placeholder="********" />
-          </div>
+          </select>
+          <Input type="password" title="Senha:" placeholder="********" />
+          <Input type="password" title="Confirmar senha:" placeholder="********" />  
         </div>
         <div className="formRegistration_group">
           <Button label="Cadastrar" onClick={onSubmit} />
