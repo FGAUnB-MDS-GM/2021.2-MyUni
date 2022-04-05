@@ -1,0 +1,54 @@
+.registrationPage {
+    background-image: url("/assets/bannerImage.jpg");
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    &_mobileMode{
+      display: none;
+    }
+    &_section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 50rem;
+      height: 15rem;
+      background-color: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(3px);
+      &_logo {
+        width: 45rem;
+        filter: grayscale(1) opacity(0.6);
+      }
+      &_description {
+        text-align: center;
+        font-size: 1.3em;
+        width: 42rem;
+        color: #646464;
+        filter: grayscale(1) opacity(0.9);
+      }
+    }
+  }
+  
+  @media screen and (max-width: 1160px) {
+    .registrationPage {
+      flex-direction: column;
+      background-position: center;
+      gap: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 810px) {
+    .registrationPage{
+      justify-content: center;
+      &_section{
+        display: none;
+      }
+      &_mobileMode{
+        display: flex;
+      }
+    }
+  }
+  

@@ -16,7 +16,7 @@ function FormLogin() {
       </div>
       <div className="formLogin_group">
         <Button label="Entrar" onClick={onSubmit} />
-        <a href="/cadastro" className="formLogin_signup">
+        <a href="/registration" className="formLogin_signup">
           Não tem uma conta? <br /> Faça a sua agora!
         </a>
       </div>

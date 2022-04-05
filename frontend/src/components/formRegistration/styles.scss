@@ -1,0 +1,28 @@
+.formRegistration {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    height: 26rem;
+    width: 22rem;
+    border-radius: 0.5rem;
+    &_logo {
+      width: 10rem;
+    }
+    &_title {
+      color: #646464;
+    }
+    &_signup {
+      color: #49a0d4;
+      font-size: 0.9em;
+      font-weight: 600;
+      text-align: center;
+    }
+    &_group {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
