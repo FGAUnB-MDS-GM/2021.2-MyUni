@@ -2,7 +2,7 @@ import FormLogin from "../../components/formLogin";
 import MyUni from "../../assets/MyUni Logo.svg";
 import "./styles.scss";
 
-function login() {
+function Login() {
   return (
     <div className="loginPage">
         <div className="loginPage_mobileMode">
@@ -19,4 +19,4 @@ function login() {
     </div>
   );
 }
-export default login;
+export default Login;
