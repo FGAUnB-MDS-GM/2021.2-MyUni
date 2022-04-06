@@ -13,13 +13,7 @@ function FormRegistration() {
         <div className="formRegistration_group"> 
           <Input type="text" title="Nome:" placeholder="José" />
           <Input type="text" title="Sobrenome:" placeholder="Silva" />
-          <Input type="text" title="Matricula:" placeholder="193239092" />
           <Input type="email" title="Email:" placeholder="aluno@gmail.com" />
-          <select className = "formRegistration_row" name="Curso">
-            <option value="valor1">Valor 1</option>
-            <option value="valor2">Valor 2</option>
-            <option value="valor3">Valor 3</option>
-          </select>
           <Input type="password" title="Senha:" placeholder="********" />
           <Input type="password" title="Confirmar senha:" placeholder="********" />  
         </div>
