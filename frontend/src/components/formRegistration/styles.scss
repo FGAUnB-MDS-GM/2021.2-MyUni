@@ -1,38 +1,41 @@
 .formRegistration {
-    width: fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: white;
+  height: 28rem;
+  width: 28rem;
+  gap: 0.3rem;
+  border-radius: 0.5rem;
+  &_logo {
+    width: 10rem;
+  }
+  &_title {
+    color: #646464;
+  }
+  &_signup {
+    color: #49a0d4;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-align: center;
+  }
+  &_group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+    & > :nth-child(3) {
+      grid-column: 1/3;
+      width: 100%;
+      & > input {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  }
+  &_submit {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: white;
-    height: 28rem;
-    width: 37rem;
-    gap: 0.3rem;
-    border-radius: 0.5rem;
-    &_logo {
-      width: 10rem;
-    }
-    &_title {
-      color: #646464;
-    }
-    &_signup {
-      color: #49a0d4;
-      font-size: 0.9em;
-      font-weight: 600;
-      text-align: center;
-    }
-    &_group {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.7rem;
-      & > :nth-child(3) {
-        background-color: red;
-        grid-column: 1/3;
-      }
-
-    }
-    // &_row {
-    //   grid-column: 1/3;
-    // }
+  }
 }
-  
