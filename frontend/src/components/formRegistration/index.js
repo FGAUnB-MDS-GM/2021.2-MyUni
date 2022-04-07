@@ -1,8 +1,25 @@
 import "./styles.scss";
 import Input from "../Input";
 import Button from "../Button";
+import { useState } from "react";
 
 function FormRegistration() {
+  const initialFormValues = {
+    name: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+  const [formValues, setFormValues] = useState(initialFormValues);
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  }
   function onSubmit(event) {
     event.preventDefault();
     console.log("submit");
@@ -11,11 +28,43 @@ function FormRegistration() {
     <form className="formRegistration">
       <h1 className="formRegistration_title">Faça seu Cadastro!</h1>
       <div className="formRegistration_group">
-        <Input type="text" title="Nome:" placeholder="José" />
-        <Input type="text" title="Sobrenome:" placeholder="Silva" />
-        <Input type="email" title="Email:" placeholder="aluno@gmail.com" />
-        <Input type="password" title="Senha:" placeholder="********" />
         <Input
+          value={formValues.name}
+          onChange={handleChange}
+          name="name"
+          type="text"
+          title="Nome:"
+          placeholder="José"
+        />
+        <Input
+          value={formValues.lastName}
+          onChange={handleChange}
+          disabled
+          naaame="lastName"
+          type="text"
+          title="Sobrenome:"
+          placeholder="Silva"
+        />
+        <Input
+          value={formValues.email}
+          onChange={handleChange}
+          name="email"
+          type="email"
+          title="Email:"
+          placeholder="aluno@gmail.com"
+        />
+        <Input
+          value={formValues.password}
+          onChange={handleChange}
+          name="password"
+          type="password"
+          title="Senha:"
+          placeholder="********"
+        />
+        <Input
+          value={formValues.confirmPassword}
+          onChange={handleChange}
+          name="confirmPassword"
           type="password"
           title="Confirmar senha:"
           placeholder="********"

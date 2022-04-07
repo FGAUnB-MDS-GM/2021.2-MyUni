@@ -1,5 +1,5 @@
 import "./styles.scss";
-function Input({ type, placeholder, title, value, onChange }) {
+function Input({ type, placeholder, title, value, onChange, ...sobra }) {
   return (
     <div className="InputContainer">
       <label className="InputContainer_label">{title}</label>
@@ -7,13 +7,17 @@ function Input({ type, placeholder, title, value, onChange }) {
         className="InputContainer_input"
         type={type}
         placeholder={placeholder}
-      ></input>
+        value={value}
+        onChange={onChange}
+        {...sobra}
+      />
     </div>
   );
 }
 Input.defaultProps = {
   type: "text",
   placeholder: "",
+  name: "",
   title: "",
   value: "",
   onChange: () => {},
