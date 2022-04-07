@@ -40,8 +40,7 @@ function FormRegistration() {
         <Input
           value={formValues.lastName}
           onChange={handleChange}
-          disabled
-          naaame="lastName"
+          name="lastName"
           type="text"
           title="Sobrenome:"
           placeholder="Silva"
@@ -52,7 +51,7 @@ function FormRegistration() {
           name="email"
           type="email"
           title="Email:"
-          placeholder="aluno@gmail.com"
+          placeholder="matricula@aluno.com"
         />
         <Input
           value={formValues.password}
