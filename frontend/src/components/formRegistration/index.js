@@ -20,6 +20,7 @@ function FormRegistration() {
       [name]: value,
     });
   }
+  //TODO: Fazer o registro do usuário no banco
   function onSubmit(event) {
     event.preventDefault();
     console.log("submit");

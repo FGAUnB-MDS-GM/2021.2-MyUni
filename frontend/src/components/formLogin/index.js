@@ -6,6 +6,7 @@ import { useState } from "react";
 function FormLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  //TODO: Tratar o login e se for bem sucedido, redirecionar para Home
   function onSubmit(event) {
     event.preventDefault();
   }
