@@ -9,8 +9,10 @@ function Home() {
       <header className="header">
         <section className="header_group">
           <button className="header_group_profileButton">
+              {/*TODO: PREENCHER COM O NOME DO USUARIO LOGADO, SE NAO FOR POSSIVEL, SÓ TIRA*/}
             <h1>Emerson Teles</h1>
           </button>
+            <a href="/profile" className="header_profile">Visualizar Perfil</a>
           <button className="header_group_logoutButton">
             <img src={Logout} alt="Logout button" />
           </button>
