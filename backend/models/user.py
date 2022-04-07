@@ -42,7 +42,7 @@ class User:
 
 class UserModel(MongoDBMixin):
     def user_exists_by_email(self, email: str):
-        user = self.user_collection.find_one({"email": email})
+        user = self.user_collection.find_one({"email": email}) or {}
         return True if user.get("_id") else False
 
     def register_user(self, user: User) -> str:
