@@ -45,3 +45,13 @@ def login_user(login: Login):
     status_code = status.HTTP_200_OK if user_id else status.HTTP_404_NOT_FOUND
 
     return JSONResponse(content=response, status_code=status_code)
+
+
+@user_router.put("")
+def update_user():
+    pass
+
+
+@user_router.delete("")
+def delete_user():
+    pass
