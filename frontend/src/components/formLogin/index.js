@@ -2,12 +2,15 @@ import "./styles.scss";
 import Input from "../Input";
 import Button from "../Button";
 import { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
 
 function FormLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { handleLogin } = useAuth();
   function onSubmit(event) {
     event.preventDefault();
+    handleLogin(email, password);
   }
   return (
     <form className="formLogin">
@@ -19,7 +22,7 @@ function FormLogin() {
           name="email"
           type="email"
           title="Email:"
-          placeholder="matricula@aluno.unb"
+          placeholder="matricula@aluno.unb.br"
         />
         <Input
           value={password}
@@ -28,6 +31,7 @@ function FormLogin() {
           type="password"
           title="Senha:"
           placeholder="********"
+          autoComplete="current-password"
         />
       </div>
       <div className="formLogin_group">
