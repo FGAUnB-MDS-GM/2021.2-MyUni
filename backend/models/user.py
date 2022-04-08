@@ -1,9 +1,9 @@
 from typing import Dict
 from datetime import datetime
 from re import match
-from hashlib import sha224
 
 from models.mixins.mongodb import MongoDBMixin
+from utils.hasher import hash_password
 
 
 class User:
@@ -22,7 +22,7 @@ class User:
     def to_dict(self) -> Dict:
         return {
             "name": self.name,
-            "password": sha224(self.password.encode()).hexdigest(),
+            "password": hash_password(self.password),
             "user_type": self.user_type,
             "email": self.email,
             "college": self.college,
@@ -41,6 +41,14 @@ class User:
 
 
 class UserModel(MongoDBMixin):
+    def user_exists_by_email(self, email: str):
+        user = self.user_collection.find_one({"email": email}) or {}
+        return True if user.get("_id") else False
+
     def register_user(self, user: User) -> str:
         insert_response = self.user_collection.insert_one(user.to_dict())
         return str(insert_response.inserted_id) if insert_response.acknowledged else ""
+
+    def retrieve_user_by_login(self, email: str, hashed_password: str) -> str:
+        user = self.user_collection.find_one({"email": email, "password": hashed_password}) or {}
+        return str(user.get("_id", ""))

@@ -3,6 +3,7 @@ from typing import Dict
 from fastapi import FastAPI, Request
 from fastapi.openapi.utils import get_openapi
 from dotenv import load_dotenv
+from starlette.middleware.cors import CORSMiddleware
 
 from controllers.forum_controllers import forum_router
 from controllers.user_controller import user_router
@@ -11,6 +12,14 @@ from controllers.user_controller import user_router
 app = FastAPI()
 app.include_router(forum_router)
 app.include_router(user_router)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 
 @app.get("/", include_in_schema=False)

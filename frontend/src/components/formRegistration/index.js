@@ -20,6 +20,7 @@ function FormRegistration() {
       [name]: value,
     });
   }
+  //TODO: Fazer o registro do usuário no banco
   function onSubmit(event) {
     event.preventDefault();
     handleRegistration(formValues.name, formValues.email, formValues.password);
@@ -39,8 +40,7 @@ function FormRegistration() {
         <Input
           value={formValues.lastName}
           onChange={handleChange}
-          disabled
-          naaame="lastName"
+          name="lastName"
           type="text"
           title="Sobrenome:"
           placeholder="Silva"

@@ -8,3 +8,8 @@ class RegistrableUser(BaseModel):
     email: str
     college: str
     disciplines: list[str] = []
+
+
+class Login(BaseModel):
+    email: str
+    password: str
