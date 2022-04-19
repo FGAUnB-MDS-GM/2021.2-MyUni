@@ -8,6 +8,8 @@ import Registration from "./pages/registration";
 import Profile from "./pages/profile";
 import Forum from "./pages/forum";
 import { AuthContextProvider } from "./contexts/authContext";
+import PrivateRoute from "./components/privateRoute";
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -15,13 +17,32 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<Navigate replace to="/login" />}></Route>
           <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            }
+          />
           <Route path="/registration" element={<Registration />} />
           <Route path="*" element={<Navigate to="/login" />} />
-          <Route path="/profile" element={<Profile />}
-           />
-           <Route path="/forum" element={<Forum />}
-           />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/forum"
+            element={
+              <PrivateRoute>
+                <Forum />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </AuthContextProvider>
     </BrowserRouter>
