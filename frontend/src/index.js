@@ -6,6 +6,7 @@ import Login from "./pages/login";
 import Home from "./pages/home";
 import Registration from "./pages/registration";
 import Profile from "./pages/profile";
+import Forum from "./pages/forum";
 import { AuthContextProvider } from "./contexts/authContext";
 ReactDOM.render(
   <React.StrictMode>
@@ -17,7 +18,10 @@ ReactDOM.render(
           <Route path="/home" element={<Home />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="*" element={<Navigate to="/login" />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />}
+           />
+           <Route path="/forum" element={<Forum />}
+           />
         </Routes>
       </AuthContextProvider>
     </BrowserRouter>

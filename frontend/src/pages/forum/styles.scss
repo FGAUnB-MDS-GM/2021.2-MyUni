@@ -1,0 +1,44 @@
+* {
+  // outline: 1px solid red;
+}
+
+.forum {
+  // outline: 1px solid green;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.forum_content {
+    // margin: 0 auto;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+      
+  .btn-text-top {
+    background-color: #f5f6fa;
+    border: 1px solid rgba(255, 255, 255, .1);
+    padding: 0.1rem 50px 0.1rem 30px;
+    border-radius: 20px;
+    width: 100%;
+    height: 42px;
+    font-weight: 300;
+    color: #8795a2;
+  }
+      
+  .btn-buscar-top {
+    width: 20px;
+    height: 22px;
+    background: url(http://www.devmedia.com.br/imagens/2013/buscar_grey.png) no-repeat;
+    cursor: pointer;
+    border: none;
+    transform: translateY(-50%);
+    padding: 0;
+    position: relative;
+    top: -25px;
+    left: 290px;
+  }
