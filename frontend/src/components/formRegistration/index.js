@@ -3,6 +3,8 @@ import Input from "../Input";
 import Button from "../Button";
 import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
+import MyUni from "../../assets/MyUni Logo.svg";
+
 function FormRegistration() {
   const initialFormValues = {
     name: "",

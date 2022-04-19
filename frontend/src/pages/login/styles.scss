@@ -9,6 +9,10 @@
   align-items: center;
   flex-wrap: nowrap;
   justify-content: space-around;
+
+  &_mobileMode {
+    display: none;
+  }
   &_section {
     display: flex;
     flex-direction: column;
@@ -56,8 +60,23 @@
 @media screen and (max-width: 1160px) {
   .login {
     justify-content: center;
+    background: #fafafa;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    flex-direction: column;
+    gap: 3rem;
     &_section {
       display: none;
+    }
+    &_mobileMode {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      overflow: hidden;
+      &_logo {
+        width: 80%;
+      }
     }
   }
 }

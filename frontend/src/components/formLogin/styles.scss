@@ -10,6 +10,7 @@
   gap: 0.3rem;
   border-radius: 0.5rem;
   padding: 0 1rem;
+  box-sizing: border-box;
   &_logo {
     width: 10rem;
   }
@@ -31,5 +32,11 @@
     & > :active {
       cursor: wait;
     }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .formLogin {
+    width: 100%;
+    box-shadow: 0 0 20px rgb(200 200 200);
   }
 }

@@ -39,3 +39,15 @@
     flex-direction: column;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .formRegistration {
+    width: 100%;
+    padding: 0 1rem;
+    box-shadow: 0 0 20px rgb(200 200 200);
+    box-sizing: border-box;
+    &_group {
+      font-size: 12px;
+    }
+  }
+}
