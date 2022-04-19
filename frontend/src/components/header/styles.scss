@@ -1,0 +1,35 @@
+.header {
+  height: 3rem;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0 2rem;
+  box-sizing: border-box;
+  z-index: 10;
+  &_group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    &_profileButton {
+      padding: 0.5rem 0.6rem;
+      border-radius: 0.25rem;
+    }
+    &_logoutButton {
+      height: 20px;
+      width: 20px;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+  h1 {
+    font-size: 1.4em;
+    font-weight: 200;
+    color: #0f0f0f;
+  }
+}

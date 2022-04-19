@@ -1,0 +1,102 @@
+.profile{
+  background-image: url("/assets/img_fundo.png");
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &_card-inputs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+    width: 100%;
+    align-items: center;
+  }
+  &_card-profile{
+    margin: 0 150px 0 150px;
+    background-color: white;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.39);
+    border-radius: 30px;
+    padding: 50px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+  }
+  &_card-image{
+    background-color: white;
+    position: relative;
+    right: 125px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    top: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &_card-pencil{
+    width: 25px;
+    height: 25px;
+  }
+  &_card-user{
+    width: 70px;
+    height: 70px;
+  }
+  &_card-icon{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+  &_icon-pencil{
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.disciplinas{
+  text-align: center;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.materia-box{
+  padding: 10px 0 10px 0;
+  background-color: white;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.list-disciplinas{
+  padding: 50px 10px 50px 10px;
+  height: 100%;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  > div {
+    margin-top: 5px;
+  }
+}
+
+.glass {
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+   -webkit-box-shadow: 0px 0px 14px 0px #000000;
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.39);
+}
+
+.myIcon{
+  fill: blue;
+}
+
+.profile_card-delete-account{
+  color:red;
+
+}
+
+.profile_card-delete-account:hover{
+  cursor: pointer;
+  color: #de1010;
+}
