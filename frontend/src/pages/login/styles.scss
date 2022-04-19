@@ -1,14 +1,14 @@
-.loginPage {
+.login {
   background-image: url("/assets/bannerImage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: nowrap;
   justify-content: space-around;
-  &_mobileMode{
-    display: none;
-  }
   &_section {
     display: flex;
     flex-direction: column;
@@ -32,22 +32,32 @@
   }
 }
 
-@media screen and (max-width: 1160px) {
-  .loginPage {
-    flex-direction: column;
-    background-position: center;
-    gap: 15px;
+@media screen and (min-width: 2500px) {
+  .login {
+    justify-content: center;
+    gap: 20rem;
+    &_section {
+      width: 80rem;
+      height: 25rem;
+      &_logo {
+        width: 65rem;
+        filter: grayscale(1) opacity(0.6);
+      }
+      &_description {
+        text-align: center;
+        font-size: 2em;
+        width: 65rem;
+        color: #646464;
+        filter: grayscale(1) opacity(0.9);
+      }
+    }
   }
 }
-
-@media screen and (max-width: 810px) {
-  .loginPage{
+@media screen and (max-width: 1160px) {
+  .login {
     justify-content: center;
-    &_section{
+    &_section {
       display: none;
-    }
-    &_mobileMode{
-      display: flex;
     }
   }
 }
