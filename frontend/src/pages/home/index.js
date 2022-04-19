@@ -13,16 +13,20 @@ function Home() {
       </section>
       <section className="home_content">
         <article className="card">
-          <img
-            className="card_icon"
-            src={CardernoDigitalImg}
-            alt="caderno digital icone"
-          />
-          <h1 className="card_title">Caderno Digital</h1>
+          <a className="card_content" href="#">
+            <img
+              className="card_icon"
+              src={CardernoDigitalImg}
+              alt="caderno digital icone"
+            />
+            <h1 className="card_title">Caderno Digital</h1>
+          </a>
         </article>
         <article className="card">
-          <img className="card_icon" src={ForumImg} alt="forum icone" />
-          <h1 className="card_title">Fórum</h1>
+          <a className="card_content" href="/forum">
+            <img className="card_icon" src={ForumImg} alt="forum icone" />
+            <h1 className="card_title">Fórum</h1>
+          </a>
         </article>
       </section>
     </div>
