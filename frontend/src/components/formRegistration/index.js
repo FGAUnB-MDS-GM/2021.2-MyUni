@@ -2,7 +2,7 @@ import "./styles.scss";
 import Input from "../Input";
 import Button from "../Button";
 import { useState } from "react";
-
+import { useAuth } from "../../hooks/useAuth";
 function FormRegistration() {
   const initialFormValues = {
     name: "",
@@ -12,7 +12,7 @@ function FormRegistration() {
     confirmPassword: "",
   };
   const [formValues, setFormValues] = useState(initialFormValues);
-
+  const { handleRegistration } = useAuth();
   function handleChange(event) {
     const { name, value } = event.target;
     setFormValues({
@@ -23,10 +23,10 @@ function FormRegistration() {
   //TODO: Fazer o registro do usuário no banco
   function onSubmit(event) {
     event.preventDefault();
-    console.log("submit");
+    handleRegistration(formValues.name, formValues.email, formValues.password);
   }
   return (
-    <form className="formRegistration">
+    <form className="formRegistration" onSubmit={onSubmit}>
       <h1 className="formRegistration_title">Faça seu Cadastro!</h1>
       <div className="formRegistration_group">
         <Input
@@ -51,7 +51,7 @@ function FormRegistration() {
           name="email"
           type="email"
           title="Email:"
-          placeholder="matricula@aluno.com"
+          placeholder="matricula@aluno.unb.br"
         />
         <Input
           value={formValues.password}
@@ -70,7 +70,7 @@ function FormRegistration() {
           placeholder="********"
         />
       </div>
-      <div className="formRegistration_ubmit">
+      <div className="formRegistration_submit">
         <Button label="Cadastrar" onClick={onSubmit} />
         <a href="/login" className="formRegistration_signup">
           <p>
