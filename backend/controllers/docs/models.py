@@ -13,3 +13,8 @@ class RegistrableUser(BaseModel):
 class Login(BaseModel):
     email: str
     password: str
+
+
+class Discipline(BaseModel):
+    code: str
+    name: str

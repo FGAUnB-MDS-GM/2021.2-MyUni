@@ -24,6 +24,9 @@ class MongoDBMixin:
         self._user_db = self._client.user
         self.user_collection: Collection = self._user_db.user
 
+        self._discipline_db = self._client.discipline
+        self.discipline_collection: Collection = self._discipline_db.discipline
+
     @property
     def client(self):
         return self._client
