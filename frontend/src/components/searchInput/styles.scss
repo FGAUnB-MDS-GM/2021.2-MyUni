@@ -8,12 +8,13 @@
   position: relative;
 }
 .search-input {
+  box-shadow: 0 0.3rem 0.7rem #969696;
   height: 2.6rem;
   width: 100%;
   padding: 0 3rem 0 1rem;
   border-radius: 2rem;
   background: #fff;
-  box-shadow: 0 1px 2px 0 rgba(146, 144, 129, 0.3);
+  // box-shadow: 0 1px 2px 0 rgba(146, 144, 129, 0.3);
 }
 .search-input:focus {
   box-shadow: 0 3px 2px 0 rgba(146, 144, 129, 0.3);

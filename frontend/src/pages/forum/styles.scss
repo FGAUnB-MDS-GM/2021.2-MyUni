@@ -2,6 +2,10 @@
   // outline: 1px solid red;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .forum {
   // outline: 1px solid green;
   padding-top: 2rem;
@@ -12,51 +16,24 @@
   background-color: #f5f5f5;
 }
 
+
 .forum_content {
-  // margin: 0 auto;
+  // outline: 1px solid green;
   width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-start;
   gap: 1rem;
 }
-.form-busca-site {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-}
-.btn-text-top {
-  width: 12rem;
-  height: 3rem;
-  padding: 0 4.5vw 0 1vw;
-  border-radius: 2.5vh;
-  border: 0;
-  text-overflow: ellipsis;
-  background-color: #fff;
-  color: #8795a2;
-}
 
-.btn-buscar-top {
-  position: absolute;
-  border-left: 1px solid rgb(80, 80, 80);
-  display: flex;
-  justify-content: center;
-
-  width: 20px;
-  height: 22px;
-  background: url(http://www.devmedia.com.br/imagens/2013/buscar_grey.png)
-    no-repeat;
-  cursor: pointer;
-  border: none;
-  transform: translateY(-50%);
-}
 .forum_article {
   display: flex;
   flex-direction: column;
-  width: 40rem;
-  max-height: 5rem;
+  width: 70%;
+  max-height: 10rem;
   border-radius: 0.5rem;
+  box-shadow: 0 0.3rem 0.7rem #969696;
   background-color: white;
   padding: 1rem;
   &_content {
@@ -102,3 +79,54 @@
     }
   }
 }
+
+.forum_aside {
+  // outline: 1px solid green;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  &_sidebar {
+    width: 70%;
+    margin-top: 51.59px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.3rem 0.7rem #969696;
+    background-color: #FFF;
+    & ul {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
+      list-style: none;
+      & h3 {
+        border-bottom: solid #969696;
+      }
+      & li::after {
+        position: absolute;
+        right: 0;
+        content: "3";
+      }
+    }
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #FFF;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #387498;
+  transform: rotate(270deg);
+  border: 0.1rem solid #387498;
+}
+
+
