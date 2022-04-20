@@ -41,6 +41,9 @@ function Forum() {
                                     <div className="forum_article_content-bottom_label">
                                         <h4>{topic.label}</h4>
                                     </div>
+                                    <div className="forum_article_content-bottom_comment">
+                                        <span>💬</span>
+                                    </div>
                                 </div>
                             </article>
                         );

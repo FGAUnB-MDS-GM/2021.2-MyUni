@@ -8,7 +8,7 @@ function Header() {
     <header className="header">
       <section className="header_group">
         <button className="header_group_profileButton">
-          <h1>Emerson Teles</h1>
+          <h1><a href="/profile">Emerson Teles</a></h1>
         </button>
         <button onClick={handleLogout} className="header_group_logoutButton">
           <img src={Logout} alt="Logout button" />
