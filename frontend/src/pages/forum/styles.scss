@@ -1,6 +1,6 @@
-* {
-  // outline: 1px solid red;
-}
+// * {
+//   // outline: 1px solid red;
+// }
 
 html {
   scroll-behavior: smooth;
@@ -91,18 +91,21 @@ html {
 
       &_comment {
         display: flex;
+        width: 3.1rem;
+        height: 21.82px;
+        padding: 0.5rem;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         background-color: #387498;
         border-radius:  0.3rem;
         padding: 0.1rem;
         position: absolute;
         right: 0;
 
-        >span::before {
-          content: '4';
+        :nth-child(1){
           color: white;
         }
+        
       }
     }
   }
@@ -110,18 +113,23 @@ html {
 
 .forum_aside {
   // outline: 1px solid green;
+  margin-top: 57.5px;
+  height: 100%;
   width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  gap: 2rem;
 
   &_sidebar {
-    width: 70%;
-    margin-top: 51.59px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 50%;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 20%);
     background-color: #FFF;
 
     & ul {
@@ -131,15 +139,46 @@ html {
       gap: 0.5rem;
       align-items: flex-start;
       list-style: none;
+    }
 
-      & h3 {
-        border-bottom: 0.1rem solid #969696;
+    & h3 {
+      border-bottom: 0.1rem solid #969696;
+      text-align: center;
+    }
+  }
+
+  &_form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 70%;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 20%);
+    background-color: #FFF;
+
+    & h3 {
+      border-bottom: 0.1rem solid #969696;
+      text-align: center;
+    }
+
+    &:not(:last-child){
+      label {
+        font-size: 1rem;
       }
-
-      & li::after {
-        position: absolute;
-        right: 0;
-        content: "3";
+    }
+    &_button{
+      display: flex;
+      justify-content: center;
+      & button{
+        width: 40%;
+        padding: 0.6rem 0;
+        background-color: #49a0d4;
+        font-size: 1.3em;
+        font-weight: 600;
+        &:hover {
+          background-color: #387498;
+        }
       }
     }
   }
