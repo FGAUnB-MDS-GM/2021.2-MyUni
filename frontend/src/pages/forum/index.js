@@ -18,6 +18,90 @@ function Forum() {
             user: "Guilherme",
             photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
         },
+        {
+            title: "Alguem consegue me ajudar com calculo 1?",
+            description: "Estou tentando resolver uns B.O",
+            label: "Calculo 1",
+            user: "Bernardo",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
+        {
+            title: "Alguem sabe quando acaba o semestre?",
+            description: "não aguento mais essa loucura",
+            label: "Geral",
+            user: "Guilherme",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
+        {
+            title: "Alguem consegue me ajudar com calculo 1?",
+            description: "Estou tentando resolver uns B.O",
+            label: "Calculo 1",
+            user: "Bernardo",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
+        {
+            title: "Alguem sabe quando acaba o semestre?",
+            description: "não aguento mais essa loucura",
+            label: "Geral",
+            user: "Guilherme",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
+        {
+            title: "Alguem consegue me ajudar com calculo 1?",
+            description: "Estou tentando resolver uns B.O",
+            label: "Calculo 1",
+            user: "Bernardo",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
+        {
+            title: "Alguem sabe quando acaba o semestre?",
+            description: "não aguento mais essa loucura",
+            label: "Geral",
+            user: "Guilherme",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
+        {
+            title: "Alguem consegue me ajudar com calculo 1?",
+            description: "Estou tentando resolver uns B.O",
+            label: "Calculo 1",
+            user: "Bernardo",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
+        {
+            title: "Alguem sabe quando acaba o semestre?",
+            description: "não aguento mais essa loucura",
+            label: "Geral",
+            user: "Guilherme",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
+        {
+            title: "Alguem consegue me ajudar com calculo 1?",
+            description: "Estou tentando resolver uns B.O",
+            label: "Calculo 1",
+            user: "Bernardo",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
+        {
+            title: "Alguem sabe quando acaba o semestre?",
+            description: "não aguento mais essa loucura",
+            label: "Geral",
+            user: "Guilherme",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
+        {
+            title: "Alguem consegue me ajudar com calculo 1?",
+            description: "Estou tentando resolver uns B.O",
+            label: "Calculo 1",
+            user: "Bernardo",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
+        {
+            title: "Alguem sabe quando acaba o semestre?",
+            description: "não aguento mais essa loucura",
+            label: "Geral",
+            user: "Guilherme",
+            photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+        },
     ];
     return (
         <Layout>
@@ -52,12 +136,13 @@ function Forum() {
                 <div className="forum_aside">
                     <aside className="forum_aside_sidebar">
                         <h3>Categorias</h3>
-                        <ul>
-                            <li>Calculo 1</li>
-                            <li>Geral</li>
-                            <li>Secretaria</li>
-                            <li>UnB idiomas</li>
-                        </ul>
+                        {forumTopic.map((topic) => {
+                            return (
+                                <ul>
+                                    <li>{topic.label}</li>
+                                </ul>
+                            );
+                        })}
                     </aside>
                 </div>
                 <a className="back-to-top" href="#forum">➜</a>
