@@ -6,12 +6,16 @@ function Header() {
 
   return (
     <header className="header">
+      <section className="current_page">
+        <h1>Página</h1>
+      </section>
       <section className="header_group">
         <button className="header_group_profileButton">
-          <h1><a href="/profile">Emerson Teles</a></h1>
+          <h2><a href="/profile">Emerson Teles</a></h2>
         </button>
         <button onClick={handleLogout} className="header_group_logoutButton">
           <img src={Logout} alt="Logout button" />
+          <span>Logout</span>
         </button>
       </section>
     </header>
