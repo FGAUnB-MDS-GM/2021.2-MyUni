@@ -36,7 +36,7 @@ function Forum() {
         },
     ];
     return (
-        <Layout>
+        <Layout title="Fórum">
             <div id="forum" className="forum">
                 <div className="forum_content">
                     <SearchInput />

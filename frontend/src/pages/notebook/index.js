@@ -28,7 +28,7 @@ function Notebook() {
         },
     ];
     return (
-        <Layout>
+        <Layout title="Caderno Digital">
             <div id="notebook" className="notebook">
                 <div className="notebook_content">
                     <SearchInput />

@@ -1,13 +1,14 @@
 import { useAuth } from "../../hooks/useAuth";
 import Logout from "../../assets/LogOut.svg";
 import "./styles.scss";
-function Header() {
+
+function Header({title}) {
   const { handleLogout } = useAuth();
 
   return (
     <header className="header">
       <section className="current_page">
-        <h1>Página</h1>
+        <h1>{title}</h1>
       </section>
       <section className="header_group">
         <button className="header_group_profileButton">

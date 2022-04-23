@@ -1,10 +1,10 @@
 import Header from "../header";
 import "./styles.scss";
 
-function Layout({children}) {
+function Layout({children, title}) {
     return (
         <div className="layout">
-            <Header />
+            <Header title={title}/>
             <div className="layout-body">
                 {children}
             </div>
