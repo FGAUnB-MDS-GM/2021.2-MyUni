@@ -18,3 +18,7 @@ class Login(BaseModel):
 class Discipline(BaseModel):
     code: str
     name: str
+
+
+class DisciplineCode(BaseModel):
+    code: str

@@ -27,6 +27,9 @@ class MongoDBMixin:
         self._discipline_db = self._client.discipline
         self.discipline_collection: Collection = self._discipline_db.discipline
 
+        self._forum_db = self._client.forum
+        self.forum_collection: Collection = self._forum_db.forum
+
     @property
     def client(self):
         return self._client

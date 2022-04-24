@@ -2,6 +2,9 @@ from typing import Dict
 from datetime import datetime
 from re import match
 
+from bson import ObjectId
+from bson.errors import BSONError
+
 from models.mixins.mongodb import MongoDBMixin
 from utils.hasher import hash_password
 
@@ -52,3 +55,11 @@ class UserModel(MongoDBMixin):
     def retrieve_user_by_login(self, email: str, hashed_password: str) -> str:
         user = self.user_collection.find_one({"email": email, "password": hashed_password}) or {}
         return str(user.get("_id", ""))
+
+    def retrieve_user_by_id(self, user_id: str) -> Dict:
+        try:
+            mongo_id = ObjectId(user_id)
+        except BSONError:
+            return {}
+
+        return self.user_collection.find_one({"_id": mongo_id}) or {}
