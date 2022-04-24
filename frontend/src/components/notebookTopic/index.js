@@ -1,16 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import "./styles.scss";
 
-export default function NotebookTopic({
-  photo,
-  title,
-  description,
-  user,
-  label,
-}) {
-  const router = useNavigate();
+export default function NotebookTopic({ onClick, title, description, label }) {
   return (
-    <article className="notebook_article">
+    <article onClick={onClick} className="notebook_article">
       <div className="notebook_article_content-top">
         <h1>{title}</h1>
         <p>{description}</p>

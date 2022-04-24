@@ -1,10 +1,17 @@
+import { useRef } from "react";
 import Layout from "../../components/layout";
-import SearchInput from "../../components/searchInput";
 import NewNotebookTopic from "../../components/newNotebookTopic";
 import NotebookTopic from "../../components/notebookTopic";
 import "./styles.scss";
+import NotebookModal from "../../components/notebookModal";
 
 function Notebook() {
+  const modalRef = useRef();
+
+  function openNotebookModal() {
+    modalRef.current.handleOpenModal();
+  }
+
   const notebookTopic = [
     {
       title: "Anotações da aula",
@@ -35,6 +42,10 @@ function Notebook() {
           {notebookTopic.map((topic) => {
             return (
               <NotebookTopic
+                onClick={() => {
+                  console.log("clicked");
+                  openNotebookModal();
+                }}
                 photo={topic.photo}
                 title={topic.title}
                 description={topic.description}
@@ -60,6 +71,7 @@ function Notebook() {
           </aside>
         </div>
       </div>
+      <NotebookModal notebook="012" ref={modalRef} />
     </Layout>
   );
 }
