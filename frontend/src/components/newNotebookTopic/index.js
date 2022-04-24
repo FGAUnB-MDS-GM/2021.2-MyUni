@@ -25,8 +25,8 @@ export default function NewForumTopic() {
   return (
     <form className="notebook_aside_form">
       <h3>Adicionar um notebook</h3>
-      <Input name="titulo" type="text" placeholder="Titulo" />
-      <Input name="descrição" type="text" placeholder="Descrição" />
+      <Input name="titulo" type="textarea" placeholder="Titulo" />
+      <Input name="descrição" type="textarea" placeholder="Descrição" />
       <Input name="topico" type="text" placeholder="Tópico" />
       <div className="notebook_aside_form_button">
         <Button label="Adicionar" />
