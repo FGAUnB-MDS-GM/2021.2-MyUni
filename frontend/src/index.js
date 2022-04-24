@@ -7,6 +7,7 @@ import Home from "./pages/home";
 import Registration from "./pages/registration";
 import Profile from "./pages/profile";
 import Forum from "./pages/forum";
+import ForumTopicPage from "./pages/forum/[topic]";
 import Notebook from "./pages/notebook";
 import { AuthContextProvider } from "./contexts/authContext";
 import PrivateRoute from "./components/privateRoute";
@@ -41,6 +42,15 @@ ReactDOM.render(
             element={
               <PrivateRoute>
                 <Forum />
+              </PrivateRoute>
+            }
+          ></Route>
+
+          <Route
+            path="/forum/:topic"
+            element={
+              <PrivateRoute>
+                <ForumTopicPage />
               </PrivateRoute>
             }
           />
