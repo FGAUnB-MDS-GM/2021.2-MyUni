@@ -1,11 +1,9 @@
-import { useNavigate } from "react-router-dom";
 import { ChatIcon } from "@heroicons/react/solid";
 import "./styles.scss";
 
-export default function ForumTopic({ photo, title, description, user, label }) {
-  const router = useNavigate();
+export default function ForumTopic({ onClick, photo, title, description, user, label }) {
   return (
-    <article className="forum_article" onClick={() => router("/notebook")}>
+    <article onClick={onClick} className="forum_article">
       <div className="forum_article_content-top">
         <img
           className="forum_article_content-top_photo"

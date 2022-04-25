@@ -5,7 +5,7 @@ import "./styles.scss";
 
 export default function NewForumTopic() {
   const defaultInputValues = {
-    question: "",
+    title: "",
     description: "",
     topic: "",
   };
@@ -23,11 +23,29 @@ export default function NewForumTopic() {
     //requisição para api;
   }
   return (
-    <form className="notebook_aside_form">
+    <form className="notebook_aside_form" onSubmit={handleSubmit}>
       <h3>Adicionar um notebook</h3>
-      <Input name="titulo" type="textarea" placeholder="Titulo" />
-      <Input name="descrição" type="textarea" placeholder="Descrição" />
-      <Input name="topico" type="text" placeholder="Tópico" />
+      <Input 
+        name="title" 
+        type="textarea" 
+        placeholder="Titulo" 
+        value={values.title}
+        onChange={(event) => handleChange(event)}
+      />
+      <Input 
+        name="description" 
+        type="textarea" 
+        placeholder="Descrição" 
+        value={values.description}
+        onChange={(event) => handleChange(event)}
+      />
+      <Input 
+        name="topic" 
+        type="text" 
+        placeholder="Tópico" 
+        value={values.topic}
+        onChange={(event) => handleChange(event)}
+      />
       <div className="notebook_aside_form_button">
         <Button label="Adicionar" />
       </div>
