@@ -28,7 +28,7 @@
         - [video de apresentação da unidade 3](https://drive.google.com/file/d/146kWImHb9qn2BIo0iR-LmMmXXM_soBSO/view?usp=sharing)
     - Entrega 4:
         - [Relatório da sprint](http://127.0.0.1:5500/docs/pages/overview.html#sprint-backlog)
-        - [Quadro Kanban](https://brick-billboard-fa2.notion.site/MDS-0d643a2928bd4aeaa481ae20d12fa97e)
+        - [Quadro Kanban](https://www.notion.so/ba33c89d295f495d89f795947d16eb17?v=c7e0b42840dc424dadeba8d12b949663)
         - [Vídeo de apresentação da entrega 4](https://drive.google.com/file/d/1TcI_PSQPzSSLlB6uzF7ri34myuz9fz9T/view)
 -----
 
