@@ -6,7 +6,7 @@
 
 > A documentação pode ser acessada no seguinte [link](https://fgaunb-mds-gm.github.io/2021.2-MyUni/)
 
-> O site do MyUni poder ser acessado no seguinte [link](http://44.204.81.194:3000/) 
+> O site do MyUni poder ser acessado no seguinte [link](http://ec2-44-204-81-194.compute-1.amazonaws.com/login) 
 
 - Integrantes
     - Bernardo Chaves Pissutti
