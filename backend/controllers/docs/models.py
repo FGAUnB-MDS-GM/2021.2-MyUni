@@ -21,4 +21,4 @@ class Discipline(BaseModel):
 
 
 class DisciplineCode(BaseModel):
-    code: str
+    discipline_code: str

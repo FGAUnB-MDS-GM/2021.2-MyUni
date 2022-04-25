@@ -4,8 +4,9 @@ from fastapi.responses import JSONResponse
 
 from utils.jwt_gateway import JWTGateway
 from models.user import UserModel
-from models.forum import ForumModel
+from models.forum import ForumModel, Forum
 from controllers.docs.models import DisciplineCode
+from models.discipline import DisciplineModel
 
 
 forum_router = APIRouter(prefix="/forum", tags=["Forum"])
@@ -32,4 +33,21 @@ def get_forums(jwt: str = Depends(jwt_scheme)):
 
 @forum_router.post("")
 def register_forums(discipline_code: DisciplineCode):
-    return {}
+    forum = Forum(discipline_code.discipline_code)
+    discipline = DisciplineModel().discipline_code_exists(discipline_code.discipline_code)
+
+    if not forum.is_valid() or not discipline:
+        return JSONResponse({"message": "Forum isn't valid"})
+
+    forum_already_exists = ForumModel().get_forums_by_disciplines_code([discipline_code.discipline_code])
+    if forum_already_exists:
+        return JSONResponse(
+            {"message": f"Forum with discipline code {discipline_code.discipline_code} already exists"},
+            status_code=status.HTTP_400_BAD_REQUEST
+        )
+    registered = ForumModel().register_forum(forum)
+
+    if registered:
+        return JSONResponse({"message": "success"}, status_code=status.HTTP_201_CREATED)
+
+    return JSONResponse({"message": "Error in database"}, status_code=status.HTTP_400_BAD_REQUEST)
