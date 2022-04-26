@@ -24,7 +24,7 @@ export default function NewForumTopic() {
   }
   return (
     <form className="notebook_aside_form" onSubmit={handleSubmit}>
-      <h3>Adicionar um notebook</h3>
+      <h3>Adicionar uma nota</h3>
       <Input 
         name="title" 
         type="textarea" 

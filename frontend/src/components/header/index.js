@@ -20,18 +20,18 @@ function Header({ title }) {
           </li>
           <li>
             <a
-              className={location.pathname === "/forum" ? "navActive" : ""}
-              href="/forum"
-            >
-              Fórum
-            </a>
-          </li>
-          <li>
-            <a
               className={location.pathname === "/notebook" ? "navActive" : ""}
               href="/notebook"
             >
               Caderno Digital
+            </a>
+          </li>
+          <li>
+            <a
+              className={location.pathname === "/forum" ? "navActive" : ""}
+              href="/forum"
+            >
+              Fórum
             </a>
           </li>
         </ul>
