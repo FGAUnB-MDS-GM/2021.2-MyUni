@@ -1,41 +1,65 @@
 .modalContainer {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: rgb(0, 0, 0, 0.2);
   position: absolute;
   top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 200;
+  padding-top: 2.5rem;
+  padding-bottom: 1rem;
+  box-sizing: border-box;
 }
 .notebookModal {
-  width: 45rem;
+  width: 600px;
   min-height: 10rem;
+  height: 80%;
   border-radius: 0.5rem;
   padding: 0.6rem;
+  margin: 0 auto;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 0;
+  position: relative;
+  overflow: hidden;
   &_close_button {
-    display: flex;
-    justify-content: flex-end;
-    button {
-      font-size: 1.2rem;
-      background-color: transparent;
-      border: none;
+    width: 1.4rem;
+    height: 1.4rem;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    background-color: white;
+    svg {
+      color: rgb(0, 0, 0, 0.5);
+      &:hover {
+        color: black;
+      }
     }
   }
   &_content {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    height: 100%;
     &_main {
+      height: inherit;
       p {
         overflow: hidden;
       }
     }
+  }
+}
+@media screen and (max-width: 700px) {
+  .modalContainer {
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  .notebookModal {
+    width: 90%;
+    height: 90%;
   }
 }
