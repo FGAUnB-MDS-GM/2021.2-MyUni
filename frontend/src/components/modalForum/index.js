@@ -36,39 +36,17 @@ function ForumModal({ forum }, ref) {
               <XIcon />
             </button>
             <div class="forumModal_content">
-              <header className="forumModal_content_header">
-                <Input
-                  name="title"
-                  type="textarea"
-                  placeholder="Título"
-                  value={values.title}
-                  onChange={(event) => handleChange(event)}
-                  style={{
-                    background: "#fff",
-                    fontSize: "1.6em",
-                    fontWeight: 700,
-                    height: "3.4rem",
-                    minHeight: "3.4rem",
-                    maxHeight: "6rem",
-                  }}
-                />
-              </header>
-              <main className="forumModal_content_main">
-                <Input
-                  name="note"
-                  type="textarea"
-                  placeholder="Nota"
-                  value={values.note}
-                  onChange={(event) => handleChange(event)}
-                  style={{
-                    background: "#fff",
-                    fontSize: "1.2em",
-                    height: "100%",
-                    minHeight: "100%",
-                    resize: "none",
-                  }}
-                />
-              </main>
+              <div className="question">
+                <header className="forumModal_content_header">
+                  <h1>Pergunta do Forum?</h1>
+                </header>
+                <main className="forumModal_content_main">
+                  <p>Descrição da Pergunta</p>
+                </main>
+              </div>
+              <div className="response">
+                
+              </div>
             </div>
           </article>
         </div>
