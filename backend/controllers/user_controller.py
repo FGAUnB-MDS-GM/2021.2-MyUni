@@ -1,13 +1,28 @@
-from fastapi import APIRouter, status
+from fastapi import APIRouter, status, Depends
 from fastapi.responses import JSONResponse
-
+from views.user_serializer import user_serializer
 from controllers.docs.models import RegistrableUser, Login
 from models.user import User, UserModel
 from utils.jwt_gateway import JWTGateway
 from utils.hasher import hash_password
-
+from fastapi.security import APIKeyHeader
 
 user_router = APIRouter(prefix="/user", tags=["User"])
+jwt_scheme = APIKeyHeader(name="Authorization")
+
+
+
+@user_router.get("")
+def get_user_by_id(jwt: str = Depends(jwt_scheme)):
+    user_id = JWTGateway().retrieve_payload(jwt).get("user_id")
+    if not user_id:
+        return JSONResponse({"message": "Unauthorized"}, status_code=status.HTTP_401_UNAUTHORIZED)
+
+    user = UserModel().retrieve_user_by_id(user_id)
+    if not user:
+        return JSONResponse({"message": "Not found"}, status_code=status.HTTP_404_NOT_FOUND)
+    return JSONResponse(user_serializer(user), status_code=status.HTTP_200_OK)
+
 
 
 @user_router.post("")
@@ -45,7 +60,6 @@ def login_user(login: Login):
     status_code = status.HTTP_200_OK if user_id else status.HTTP_404_NOT_FOUND
 
     return JSONResponse(content=response, status_code=status_code)
-
 
 @user_router.put("")
 def update_user():
