@@ -1,10 +1,18 @@
+import { useRef } from "react";
 import Layout from "../../components/layout";
 import SearchInput from "../../components/searchInput";
 import "./styles.scss";
 import NewForumTopic from "../../components/newForumTopic";
 import ForumTopic from "../../components/forumTopic";
+import ModalForum from "../../components/modalForum";
 
 function Forum() {
+  const modalRef = useRef();
+
+  function openForumModal() {
+    modalRef.current.handleOpenModal();
+  }
+
   const forumTopic = [
     {
       title: "Alguem consegue me ajudar com calculo 1?",
@@ -45,6 +53,10 @@ function Forum() {
           {forumTopic.map((topic, index) => {
             return (
               <ForumTopic
+                onClick={() => {
+                  console.log("clicked");
+                  openForumModal();
+                }}
                 photo={topic.photo}
                 title={topic.title}
                 description={topic.description}
@@ -70,6 +82,7 @@ function Forum() {
           </aside>
         </div>
       </div>
+      <ModalForum forum="012" ref={modalRef} />
     </Layout>
   );
 }
