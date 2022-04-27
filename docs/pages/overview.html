@@ -182,6 +182,9 @@
                     <li><a href="#replaning">Critérios de Replanejamento</a></li>
                   </ul>
                 </li>
+                <li><a href="#arch">Arquitetura Utilizada</a></li>
+                <li><a href="#patterns">Padrões de projeto utilizados</a></li>
+                <li><a href="#uml-diagram">UML</a></li>
                 <li><a href="#tests">Estratégias de Teste</a></li>
                 <li><a href="#sprint-backlog">Backlog das Sprints</a></li>
                 <li><a href="#learned-leasson">Lições Aprendidas</a></li>
@@ -760,6 +763,8 @@
                     US-01, US-02, US-03, US-04, US-05, US-06, US-07, US-08, US-09,
                     US-10, US-11, US-12, US-13, US-16, US-19, US-20.
                   </p>
+                  <img src="../images/miro_mvp.png" alt="">
+                  <p class="text-justify">Para melhor visualizar o canvas-MVP acessar o seguinte <a href="https://miro.com/app/board/uXjVOKONjxw=/?invite_link_id=450609391756">link</a></p>
                 </div>
               </div>
             </section>
@@ -914,6 +919,93 @@
                   </section>
                 </div>
               </div>
+              <hr />
+            </section>
+
+            <section id="arch">
+              <div class="row">
+                <div class="col-md-12 left-align">
+                  <h2 class="dark-text">Arquitetura utilizada
+                    <hr />
+                  </h2>
+                  
+                </div>
+                <p>
+                  No projeto foi utilizado a arquitetura MVC, que consiste em
+                  separar as lógicas da aplicação da manipulação de dados dos
+                  bancos de dados e das formatações retornadas pelo servidor.
+                  Ela separa as camadas em três principais camadas: models,
+                  views e controllers.
+                </p>
+                <h3>Controllers</h3>
+                <p>
+                  Contém as lógicas de roteamento de respostas ao cliente,
+                  utilizando a camada de models e views para criar a reposta
+                  adequeada à requesição.
+                </p>
+                <h3>Models</h3>
+                <p>
+                  Contém modelos que manipulam os bancos de dados e possuem
+                  métodos para extração específica de dados.
+                </p>
+                <h3>Views</h3>
+                <p>
+                  Contém shemas para formatação de dados em formatos que serão
+                  retornados ao cliente.
+                </p>
+                <img
+                  src="..\images\atuacao_das_camadas_mvc.png"
+                  style="width: 50vw; height: 50vh"
+                />
+                <img
+                  src="../images/arch.png"
+                  style="width: 50vw; height: 50vh"
+                />
+                <hr />
+              </div>
+            </section>
+
+            <section id="patterns">
+              <div class="row">
+                <div class="col-md-12 left-align">
+                  <h2 class="dark-text">Padrões de projeto utilizados
+                    <hr />
+                  </h2>
+                </div>
+                <p>
+                  No projeto foi escolhido 5 padrões de projeto para melhorar o
+                  entendimento do código feito, entre eles, devemos ressaltar o
+                  uso do Singleton, que permite criação de uma classe que gera a
+                  mesma instância sempre, o que pode melhorar a perfomance do
+                  sistema ao usar conexões com banco de dados.
+                </p>
+                <img
+                  src="../images/patterns.png"
+                  style="width: 50vw; height: 80vh"
+                />
+              </div>
+              <hr />
+            </section>
+
+            <section id="uml-diagram">
+              <div class="row">
+                <div class="col-md-12 left-align">
+                  <h2 class="dark-text">Diagrama UML de classes
+                    <hr />
+                  </h2>
+                  <img
+                    src="..\images\uml-diagram\UML-MYUNI-Model.drawio.svg"
+                    style="width: 50vw"
+                    alt="diagram"
+                  />
+                  <img
+                    src="..\images\uml-diagram\UML-MYUNI-Control.drawio.svg"
+                    style="width: 50vw"
+                    alt="diagram"
+                  />
+                </div>
+              </div>
+              <hr />
             </section>
 
             <section id="tests" class="section">
@@ -957,8 +1049,101 @@
                       Workshop 3: Servidor AWS. Data: 04/04
                     </li>
                   </ul>
-                  <p>O desenvolvimento das histórias foi em conjunto com todos os membros durante os workshops e nos dias 24/03, 28/03, 02/04, 05/04, 06/04. No dia 24/03 a equipe toda se reuniu para trabalhar no frontend, dia 28/03 os intergrantes Guilherme, Dion, Delziron Bernardo se reuniram para trabalhar no backend, dia 02/04 Emerson e Delziron se reuniram para trabalhar no frontend, dia 05/04 Guilherme, Emerson e Bernardo se reuniram para trabalhar no frontend, dia 06/04 Emerson e Guilherme trabalharam no front depois Emerson e Dion trabalharam no back.</p>
+                  <p>O desenvolvimento das histórias foi em conjunto com todos os membros durante os workshops e pair programing nos dias 24/03, 28/03, 02/04, 05/04, 06/04.</p>
+                  <table>
+                    <thead>
+                      <td>Data</td>
+                      <td>Participantes</td>
+                      <td>Front/Back</td>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td rowspan="2">24/03</td>
+                        <td rowspan="2">Toda a equipe</td>
+                        <td>Backend</td>
+                      </tr>
+                      <tr>
+                        <td>Frontend</td>
+                      </tr>
+                      <tr>
+                        <td>28/03</td>
+                        <td>Guilherme, Dion, Delziron, Bernardo</td>
+                        <td>Backend</td>
+                      </tr>
+                      <tr>
+                        <td>02/04</td>
+                        <td>Emerson, Delziron</td>
+                        <td>Frontend</td>
+                      </tr>
+                      <tr>
+                        <td>05/04</td>
+                        <td>Emerson, Guilherme, Bernardo</td>
+                        <td>Frontend</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2">06/04</td>
+                        <td>Emerson, Guilherme</td>
+                        <td>Frontend</td>
+                      </tr>
+                      <tr>
+                        <td>Emerson, Dion</td>
+                        <td>Backend</td>
+                      </tr>
+                    </tbody>
+                  </table>
                   <hr>
+                  <h3>Sprint 5</h3>
+                  <h4>Backlog</h4>
+                  <ul class="list-inside">
+                    <li>US-04: O usuário deve ser capaz de cadastrar anotações nos cadernos digitais.</li>
+                    <li>US-05: O usuário deve ser capaz de visualizar as anotações salvas feitas nos cadernos digitais.</li>
+                    <li>US-06: O usuário deve ser capaz de alterar qualquer anotação feita nos cadernos digitais.</li>
+                    <li>US-07: O usuário deve ser capaz de excluir qualquer anotação feita nos cadernos digitais.</li>
+                    <li>US-08: O usuário deve ser capaz de cadastrar uma pergunta no fórum.</li>
+                    <li>US-09: O usuário deve ser capaz de excluir qualquer pergunta feita pelo mesmo no fórum.</li>
+                    <li>US-16: O usuário deve ser capaz de cadastrar um a descrição da pergunta a ser feita.</li>
+                    <li>US-19: O usuário deve ser capaz de responder qualquer pergunta no fórum.</li>
+                    <li>US-20: O usuário deve ser capaz de excluir qualquer resposta feita pelo mesmo no fórum.</li>
+                  </ul>
+                  <h4>Relatório</h4>
+                  <p>O desenvolvimento das histórias foi feito em pair programing nos dias 19/04, 23/04, 24/04, 25/04.</p>
+                  <table>
+                    <thead>
+                      <td>Data</td>
+                      <td>Participantes</td>
+                      <td>Front/Back</td>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td rowspan="2">19/04</td>
+                        <td>Bernardo, Emerson</td>
+                        <td>Frontend</td>
+                      </tr>
+                      <tr>
+                        <td>Delziron e Dion</td>
+                        <td>Backend</td>
+                      </tr>
+                      <tr>
+                        <td>23/04</td>
+                        <td>Emerson, Bernardo</td>
+                        <td>Frontend</td>
+                      </tr>
+                      <tr>
+                        <td rowspan="2">24/04</td>
+                        <td>Emerson, Delziron, Bernardo</td>
+                        <td>Frontend</td>
+                      </tr>
+                      <tr>
+                        <td>Delziron, Dion</td>
+                        <td>Backend</td>
+                      </tr>
+                      <tr>
+                        <td>25/04</td>
+                        <td>Guilherme, Bernardo</td>
+                        <td>Frontend</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </section>
