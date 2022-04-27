@@ -3,17 +3,13 @@ import Input from "../../components/Input";
 import PencilIcon from "../../components/PencilIcon";
 import { useEffect, useState } from "react";
 import CheckIcon from "../../components/CheckIcon";
+import {api} from "../../service/api";
 
 function Profile() {
-  let initialValues = {
-    nome: "Emerson Teles",
-    universidade: "UnB",
-    email: "emersonteles@gmail.com",
-  };
   //TODO: PEGAR MATERIAS DA API E PREENCHER ESSE ARRAY
   let materias = ["MDS", "GPEQ", "PED"];
   let [disabled, setDisabled] = useState("disabled");
-  const [formValues, setFormValues] = useState(initialValues);
+  const [formValues, setFormValues] = useState(null);
   let icon;
 
   function handleChange(event) {
@@ -33,8 +29,20 @@ function Profile() {
     disabled === "" ? setDisabled("disabled") : setDisabled("");
   };
 
+  function getInfoUser(){
+    api.get('/user', {
+      headers: {
+        'Authorization': localStorage.getItem('token')
+      }
+    }).then((dado) => {
+      setFormValues(dado.data);
+    })
+  }
+
   //TODO: Popular Informações vindas do banco de dados
-  useEffect(() => {}, []);
+  useEffect(() => {
+    getInfoUser()
+  }, []);
 
   //TODO: Função de Deletar Conta, chamar delete da api e redirecionar para login
   const deleteAccount = () => {
@@ -50,24 +58,24 @@ function Profile() {
         <div className="profile_card-inputs">
           <Input
             title="Nome"
-            name="nome"
+            name="name"
             onChange={handleChange}
             disabled={disabled}
-            value={formValues.nome}
+            value={formValues?.name}
           />
           <Input
             title="E-mail"
             name="email"
             onChange={handleChange}
             disabled={disabled}
-            value={formValues.email}
+            value={formValues?.email}
           />
           <Input
             title="Universidade"
-            name="universidade"
+            name="college"
             onChange={handleChange}
             disabled={disabled}
-            value={formValues.universidade}
+            value={formValues?.college}
           />
           <div className="disciplinas">
             <p>Disciplinas</p>
