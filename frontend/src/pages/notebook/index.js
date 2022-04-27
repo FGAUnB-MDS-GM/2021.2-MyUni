@@ -8,8 +8,8 @@ import NotebookModal from "../../components/notebookModal";
 function Notebook() {
   const modalRef = useRef();
 
-  function openNotebookModal() {
-    modalRef.current.handleOpenModal();
+  function openNotebookModal(topic) {
+    modalRef.current.handleOpenModal(topic);
   }
 
   const notebookTopic = [
@@ -44,7 +44,7 @@ function Notebook() {
               <NotebookTopic
                 onClick={() => {
                   console.log("clicked");
-                  openNotebookModal();
+                  openNotebookModal(topic);
                 }}
                 photo={topic.photo}
                 title={topic.title}
