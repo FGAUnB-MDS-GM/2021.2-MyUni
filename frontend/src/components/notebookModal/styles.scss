@@ -51,6 +51,11 @@
       }
     }
   }
+  &_confirm_button{
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+  }
 }
 @media screen and (max-width: 700px) {
   .modalContainer {
