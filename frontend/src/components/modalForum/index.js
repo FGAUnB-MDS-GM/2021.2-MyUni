@@ -1,23 +1,20 @@
-import { useImperativeHandle, forwardRef, useState } from "react";
-import { XIcon } from "@heroicons/react/outline";
+import {forwardRef, useImperativeHandle, useState} from "react";
+import {XIcon} from "@heroicons/react/outline";
 import Modal from "../modal";
-import Input from "../Input";
 import "./styles.scss";
+import ForumTopic from "../forumTopic";
 
 function ForumModal({ forum }, ref) {
-    const defaultInputValues = {
-      title: "",
-      note: "",
-    };
     const [forumModal, setForumModal] = useState(false);
-    const [values, setValues] = useState(defaultInputValues);
+    const [values, setValues] = useState(null);
     function handleChange(event) {
       const { name, value } = event.target;
   
       setValues({ ...values, [name]: value });
     }
     useImperativeHandle(ref, () => ({
-      handleOpenModal: () => {
+      handleOpenModal: (forum) => {
+        setValues(forum);
         console.log("imperative");
         setForumModal(true);
       },
@@ -38,14 +35,18 @@ function ForumModal({ forum }, ref) {
             <div class="forumModal_content">
               <div className="question">
                 <header className="forumModal_content_header">
-                  <h1>Pergunta do Forum?</h1>
+                  <h1>{values.title}</h1>
                 </header>
                 <main className="forumModal_content_main">
-                  <p>Descrição da Pergunta</p>
+                  <p>{values.description}</p>
                 </main>
               </div>
-              <div className="response">
-                
+              <div className="forumModal_responses">
+                  {
+                      values.responses?.map((resposta)=> {
+                          return <ForumTopic description={resposta.description} user={resposta.autor}/>
+                      })
+                  }
               </div>
             </div>
           </article>
