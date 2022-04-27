@@ -9,8 +9,8 @@ import ModalForum from "../../components/modalForum";
 function Forum() {
   const modalRef = useRef();
 
-  function openForumModal() {
-    modalRef.current.handleOpenModal();
+  function openForumModal(forum) {
+    modalRef.current.handleOpenModal(forum);
   }
 
   const forumTopic = [
@@ -21,6 +21,23 @@ function Forum() {
       label: "Calculo 1",
       user: "Bernardo",
       photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
+      responses: [{
+        description: "Oi Bernardo, eu posso te ajudar, pode me chamar no privado por favor? Obrigado",
+        autor: "Guilherme"
+      },
+        {
+          description: "Oi Bernardo, eu posso te ajudar, pode me chamar no privado por favor? Obrigado",
+          autor: "Guilherme"
+        },
+        {
+          description: "Oi Bernardo, eu posso te ajudar, pode me chamar no privado por favor? Obrigado",
+          autor: "Guilherme"
+        },
+        {
+          description: "Oi Bernardo, eu posso te ajudar, pode me chamar no privado por favor? Obrigado",
+          autor: "Guilherme"
+        }
+      ]
     },
     {
       title: "Alguem sabe quando acaba o semestre?",
@@ -55,7 +72,7 @@ function Forum() {
               <ForumTopic
                 onClick={() => {
                   console.log("clicked");
-                  openForumModal();
+                  openForumModal(topic);
                 }}
                 photo={topic.photo}
                 title={topic.title}
