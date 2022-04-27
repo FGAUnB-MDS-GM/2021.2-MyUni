@@ -25,6 +25,7 @@ export default function Auth() {
   }
   function handleLogout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("nameUser")
     router("/login");
   }
   async function handleRegistration(name, email, password) {
