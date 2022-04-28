@@ -18,6 +18,10 @@ body {
   box-sizing: content-box;
   list-style-type: none;
 }
+
+p {
+  text-align: justify;
+}
 *::-webkit-scrollbar {
   width: 8px; /* width of the entire scrollbar */
   cursor: pointer;
