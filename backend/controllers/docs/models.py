@@ -48,6 +48,7 @@ class RegistrableNote(BaseModel):
 
 
 class UpgradableNote(BaseModel):
+    note_id: str
     title: str | None = None
     note: str | None = None
     topic: str | None = None

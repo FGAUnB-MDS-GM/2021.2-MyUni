@@ -56,3 +56,12 @@ class NoteModel(MongoDBMixin):
 
         delete_response = self.note_collection.delete_one({"_id": mongo_id})
         return True if delete_response.deleted_count else False
+
+    def update_note(self, note_id: str, update_modifications: Dict) -> bool:
+        try:
+            mongo_id = ObjectId(note_id)
+        except BSONError:
+            return False
+
+        updated = self.note_collection.find_one_and_update({"_id": mongo_id}, {"$set": update_modifications})
+        return True if updated else False
