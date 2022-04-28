@@ -72,3 +72,12 @@ class UserModel(MongoDBMixin):
 
         updated = self.user_collection.find_one_and_update({"_id": mongo_id}, {"$set": update_modifications})
         return True if updated else False
+
+    def delete_user(self, user_id: str) -> bool:
+        try:
+            mongo_id = ObjectId(user_id)
+        except BSONError:
+            return False
+
+        delete_response = self.user_collection.delete_one({"_id": mongo_id})
+        return True if delete_response.deleted_count else False
