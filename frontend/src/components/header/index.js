@@ -6,23 +6,19 @@ import Loader from "../Loader";
 import { useEffect, useState } from "react";
 import api from "../../service/api";
 
-function Header({ title }) {
+function Header({ atualizarName }) {
   const [name, setName] = useState(null);
   function getInfoUser() {
-    if (localStorage.getItem("nameUser")) {
-      setName(localStorage.getItem("nameUser"));
-    } else {
-      api
-        .get("/user", {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        })
-        .then((dado) => {
-          localStorage.setItem("nameUser", dado.data.name);
-          setName(localStorage.getItem("nameUser"));
-        });
-    }
+    api
+      .get("/user", {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((dado) => {
+        localStorage.setItem("nameUser", dado.data.name);
+        setName(localStorage.getItem("nameUser"));
+      });
   }
   useEffect(() => {
     getInfoUser();

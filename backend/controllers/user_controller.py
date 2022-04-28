@@ -104,3 +104,17 @@ def delete_user(jwt: str = Depends(jwt_scheme)):
         {"message": "success" if deleted else "error when deleting user in database"},
         status_code=status_code
     )
+
+
+@user_router.get("/{user_id}")
+def get_user(user_id, jwt: str = Depends(jwt_scheme)):
+    _user_id = JWTGateway().retrieve_payload(jwt).get("user_id")
+    if not _user_id:
+        return JSONResponse({"message": "Unauthorized"}, status_code=status.HTTP_401_UNAUTHORIZED)
+
+    user = UserModel().retrieve_user_by_id(user_id)
+    if user:
+        user_serializer(user)
+        return JSONResponse({"message": "success", "data": user}, status_code=status.HTTP_200_OK)
+
+    return JSONResponse({"message": "Not found"}, status_code=status.HTTP_404_NOT_FOUND)
