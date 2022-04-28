@@ -10,42 +10,13 @@ import { useNavigate } from "react-router-dom";
 
 export default function TopicPage() {
   const { topic } = useParams();
-  const forumTopicMockado = {
-    title: "Alguem consegue me ajudar com calculo 1?",
-    description:
-      "Tendo em vista essa desconexão com o mundo real que os estudantes de Cálculo 1 enfrentam, mostraremos um exemplo de como essa disciplina é importante em um projeto de Engenharia.  No caso, o projeto em especial envolve a etapa da recuperação de um foguete amador. Por meio do máximo de uma função, é possível saber qual a altura máxima, denominada apogeu, será atingida pelo foguete.",
-    label: "Calculo 1",
-    user: "Bernardo",
-    photo: "https://avatars.githubusercontent.com/u/57421498?v=4",
-    responses: [
-      {
-        description:
-          "Oi Bernardo, eu posso te ajudar, pode me chamar no privado por favor? Obrigado",
-        autor: "Guilherme",
-      },
-      {
-        description:
-          "Oi Bernardo, eu posso te ajudar, pode me chamar no privado por favor? Obrigado",
-        autor: "Guilherme",
-      },
-      {
-        description:
-          "Oi Bernardo, eu posso te ajudar, pode me chamar no privado por favor? Obrigado",
-        autor: "Guilherme",
-      },
-      {
-        description:
-          "Oi Bernardo, eu posso te ajudar, pode me chamar no privado por favor? Obrigado",
-        autor: "Guilherme",
-      },
-    ],
-  };
+
   const forumDefaultValues = {
     title: "",
     description: "",
     responses: [],
   };
-  const [comment, setComment] = useState(forumTopicMockado);
+  const [comment, setComment] = useState(forumDefaultValues);
   const [question, setQuestion] = useState();
   const [newQuestion, setNewQuestion] = useState(true);
   const token = localStorage.getItem("token");

@@ -30,7 +30,9 @@ export default function Auth() {
   }
   async function handleRegistration(name, email, password) {
     try {
-      const { data: token } = await api.post("/user", {
+      const {
+        data: { jwt: token },
+      } = await api.post("/user", {
         name,
         email,
         password,
@@ -41,7 +43,9 @@ export default function Auth() {
       router("/home");
     } catch (error) {
       console.log(error.message);
-      toast.error("Não foi possível realizar o cadastro, verifique os campos do formulario.");
+      toast.error(
+        "Não foi possível realizar o cadastro, verifique os campos do formulario."
+      );
     }
   }
   return { handleLogin, handleLogout, handleRegistration };
