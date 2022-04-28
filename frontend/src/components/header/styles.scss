@@ -1,35 +1,72 @@
 .header {
   height: 3rem;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   position: fixed;
+  background-color: white;
   box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.2);
   padding: 0 2rem;
   box-sizing: border-box;
-  z-index: 10;
+  z-index: 100;
+  &_navbar ul {
+    display: flex;
+    gap: 2rem;
+    li {
+      list-style-type: none;
+      a {
+        font-size: 1.1em;
+        transition: 0.2s all ease-in-out;
+        &:hover {
+          color: black;
+          border-bottom: 1px solid black;
+        }
+      }
+      .navActive {
+        color: black;
+        border-bottom: 1px solid black;
+      }
+    }
+  }
   &_group {
     display: flex;
+    justify-content: flex-end;
     flex-direction: row;
     align-items: center;
     gap: 1rem;
+
     &_profileButton {
       padding: 0.5rem 0.6rem;
       border-radius: 0.25rem;
+
+      font-size: 1.1em;
     }
+
+    &_profileButton h2 a:hover {
+      opacity: 0.5;
+    }
+
     &_logoutButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.2rem;
       height: 20px;
-      width: 20px;
+
       &:hover {
         opacity: 0.5;
       }
     }
   }
+}
+
+.current_page {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
   h1 {
-    font-size: 1.4em;
-    font-weight: 200;
-    color: #0f0f0f;
+    font-size: 1.5em;
+    font-weight: 400;
   }
 }

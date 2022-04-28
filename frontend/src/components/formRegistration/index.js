@@ -22,10 +22,10 @@ function FormRegistration() {
       [name]: value,
     });
   }
-  //TODO: Fazer o registro do usuário no banco
   function onSubmit(event) {
     event.preventDefault();
-    handleRegistration(formValues.name, formValues.email, formValues.password);
+    const name = `${formValues.name} ${formValues.lastName}`;
+    handleRegistration(name, formValues.email, formValues.password);
   }
   return (
     <form className="formRegistration" onSubmit={onSubmit}>

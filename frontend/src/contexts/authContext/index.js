@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { api } from "../../service/api";
+import api from "../../service/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -25,11 +25,14 @@ export default function Auth() {
   }
   function handleLogout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("nameUser");
     router("/login");
   }
   async function handleRegistration(name, email, password) {
     try {
-      const { data: token } = await api.post("/user", {
+      const {
+        data: { jwt: token },
+      } = await api.post("/user", {
         name,
         email,
         password,
@@ -40,7 +43,9 @@ export default function Auth() {
       router("/home");
     } catch (error) {
       console.log(error.message);
-      toast.error("Não foi possível realizar o login");
+      toast.error(
+        "Não foi possível realizar o cadastro, verifique os campos do formulario."
+      );
     }
   }
   return { handleLogin, handleLogout, handleRegistration };

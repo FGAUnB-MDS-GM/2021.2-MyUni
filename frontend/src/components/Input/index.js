@@ -1,16 +1,27 @@
 import "./styles.scss";
-function Input({ type, placeholder, title, value, onChange, ...sobra }) {
+function Input({ type, placeholder, title, value, onChange, ...rest }) {
   return (
     <div className="InputContainer">
       <label className="InputContainer_label">{title}</label>
-      <input
-        className="InputContainer_input"
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        {...sobra}
-      />
+      {type === "textarea" ? (
+        <textarea
+          className="InputContainer_textarea"
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          {...rest}
+        />
+      ) : (
+        <input
+          className="InputContainer_input"
+          type={type}
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          {...rest}
+        />
+      )}
     </div>
   );
 }

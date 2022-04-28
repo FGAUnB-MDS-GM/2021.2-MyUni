@@ -1,8 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .layout-body {
   padding-top: 3rem;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #fff;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #387498;
+  transform: rotate(270deg);
+  border: 0.1rem solid #387498;
 }

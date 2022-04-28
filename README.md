@@ -5,6 +5,9 @@
 > Projeto Realizado do Curso de Engenharia de Software da Universidade de Brasília (UnB-Gama)
 
 > A documentação pode ser acessada no seguinte [link](https://fgaunb-mds-gm.github.io/2021.2-MyUni/)
+
+> O site do MyUni poder ser acessado no seguinte [link](http://ec2-44-204-81-194.compute-1.amazonaws.com/login) 
+
 - Integrantes
     - Bernardo Chaves Pissutti
     - Delziron Braz de Lima
@@ -23,13 +26,17 @@
     - Entrega 3:
         - [Documento de arquitetura de software e disign de projeto](https://fgaunb-mds-gm.github.io/2021.2-MyUni/pages/architecture.html)
         - [video de apresentação da unidade 3](https://drive.google.com/file/d/146kWImHb9qn2BIo0iR-LmMmXXM_soBSO/view?usp=sharing)
+    - Entrega 4:
+        - [Relatório da sprint](http://127.0.0.1:5500/docs/pages/overview.html#sprint-backlog)
+        - [Quadro Kanban](https://www.notion.so/ba33c89d295f495d89f795947d16eb17?v=c7e0b42840dc424dadeba8d12b949663)
+        - [Vídeo de apresentação da entrega 4](https://drive.google.com/file/d/1TcI_PSQPzSSLlB6uzF7ri34myuz9fz9T/view)
 -----
 
 ## Sobre o Projeto
 
 > O Projeto foi criado pensando em facilitar a vida do estudante acadêmico oferencendo a ele
 > uma plataforma que o servisse tanto quanto um Caderno/Agenda digital quanto um fórum
-> para compartilhamento de informações entre os discentes
+> para compartilhamento de informações entre os discentes.
 
 ### Metodologia Aplicada
 

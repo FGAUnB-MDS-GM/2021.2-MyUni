@@ -2,6 +2,9 @@ from typing import Dict
 from datetime import datetime
 from re import match
 
+from bson import ObjectId
+from bson.errors import BSONError
+
 from models.mixins.mongodb import MongoDBMixin
 from utils.hasher import hash_password
 
@@ -26,7 +29,7 @@ class User:
             "user_type": self.user_type,
             "email": self.email,
             "college": self.college,
-            "disciplines": self.disciplines,
+            "disciplines": ["MYUNI"],
             "created_at": self.created_at,
             "updated_at": self.updated_at
         }
@@ -52,3 +55,29 @@ class UserModel(MongoDBMixin):
     def retrieve_user_by_login(self, email: str, hashed_password: str) -> str:
         user = self.user_collection.find_one({"email": email, "password": hashed_password}) or {}
         return str(user.get("_id", ""))
+
+    def retrieve_user_by_id(self, user_id: str) -> Dict:
+        try:
+            mongo_id = ObjectId(user_id)
+        except BSONError:
+            return {}
+
+        return self.user_collection.find_one({"_id": mongo_id}) or {}
+
+    def update_user(self, user_id: str, update_modifications: Dict) -> bool:
+        try:
+            mongo_id = ObjectId(user_id)
+        except BSONError:
+            return False
+
+        updated = self.user_collection.find_one_and_update({"_id": mongo_id}, {"$set": update_modifications})
+        return True if updated else False
+
+    def delete_user(self, user_id: str) -> bool:
+        try:
+            mongo_id = ObjectId(user_id)
+        except BSONError:
+            return False
+
+        delete_response = self.user_collection.delete_one({"_id": mongo_id})
+        return True if delete_response.deleted_count else False

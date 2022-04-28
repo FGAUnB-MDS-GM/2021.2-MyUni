@@ -7,8 +7,11 @@ import Home from "./pages/home";
 import Registration from "./pages/registration";
 import Profile from "./pages/profile";
 import Forum from "./pages/forum";
+import ForumTopicPage from "./pages/forum/[topic]";
+import Notebook from "./pages/notebook";
 import { AuthContextProvider } from "./contexts/authContext";
 import PrivateRoute from "./components/privateRoute";
+import { ToastContainer } from "react-toastify";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -42,8 +45,21 @@ ReactDOM.render(
                 <Forum />
               </PrivateRoute>
             }
+          ></Route>
+
+          <Route path="/forum/:topic" element={<ForumTopicPage />} />
+
+          <Route
+            path="/notebook"
+            element={
+              <PrivateRoute>
+                <Notebook />
+              </PrivateRoute>
+            }
           />
         </Routes>
+
+        <ToastContainer />
       </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>,

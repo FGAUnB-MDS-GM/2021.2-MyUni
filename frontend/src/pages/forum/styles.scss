@@ -1,10 +1,11 @@
-* {
-  // outline: 1px solid red;
-}
+// * {
+//   // outline: 1px solid red;
+// }
 
 .forum {
   // outline: 1px solid green;
   padding-top: 2rem;
+  padding-bottom: 5rem;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -13,92 +14,48 @@
 }
 
 .forum_content {
-  // margin: 0 auto;
+  // outline: 1px solid green;
   width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-start;
   gap: 1rem;
 }
-.form-busca-site {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-}
-.btn-text-top {
-  width: 12rem;
-  height: 3rem;
-  padding: 0 4.5vw 0 1vw;
-  border-radius: 2.5vh;
-  border: 0;
-  text-overflow: ellipsis;
-  background-color: #fff;
-  color: #8795a2;
-}
 
-.btn-buscar-top {
-  position: absolute;
-  border-left: 1px solid rgb(80, 80, 80);
-  display: flex;
-  justify-content: center;
-
-  width: 20px;
-  height: 22px;
-  background: url(http://www.devmedia.com.br/imagens/2013/buscar_grey.png)
-    no-repeat;
-  cursor: pointer;
-  border: none;
-  transform: translateY(-50%);
-}
-.forum_article {
+.forum_aside {
+  // outline: 1px solid green;
+  margin-top: 57.5px;
+  height: 100%;
+  width: 30%;
   display: flex;
   flex-direction: column;
-  width: 40rem;
-  max-height: 5rem;
-  border-radius: 0.5rem;
-  background-color: white;
-  padding: 1rem;
-  &_content {
-    &-top {
-      display: grid;
-      grid-template-columns: 4rem 1fr;
-      grid-template-rows: 1fr 1fr;
-      &_photo {
-        width: 3rem;
-        border-radius: 50%;
-        grid-row: 1/3;
-      }
-      h1 {
-        font-weight: 500;
-      }
-      h2 {
-        font-weight: 400;
-        font-size: 1em;
-        color: #525252;
-      }
-    }
-    &-bottom {
-      display: flex;
-      flex-direction: row;
-      gap: 3rem;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
 
-      h3 {
-        font-weight: 300;
-        color: #969696;
-      }
-      &_label {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #387498;
-        color: white;
-        border-radius: 0.3rem;
-        width: 6rem;
-        > h4 {
-          font-weight: 400;
-        }
-      }
+  &_sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 50%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 20%);
+    background-color: #fff;
+
+    & ul {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: flex-start;
+      list-style: none;
+    }
+
+    & h3 {
+      border-bottom: 0.1rem solid #969696;
+      text-align: center;
     }
   }
 }

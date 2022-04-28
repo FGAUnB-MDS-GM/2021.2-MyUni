@@ -1,93 +1,159 @@
 import "./styles.scss";
 import Input from "../../components/Input";
 import PencilIcon from "../../components/PencilIcon";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import CheckIcon from "../../components/CheckIcon";
+import api from "../../service/api";
+import Header from "../../components/header";
+import {useNavigate} from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Profile() {
-  let initialValues = {
-    nome: "Emerson Teles",
-    universidade: "UnB",
-    email: "emersonteles@gmail.com",
-  };
-  //TODO: PEGAR MATERIAS DA API E PREENCHER ESSE ARRAY
-  let materias = ["MDS", "GPEQ", "PED"];
-  let [disabled, setDisabled] = useState("disabled");
-  const [formValues, setFormValues] = useState(initialValues);
-  let icon;
+    const router = useNavigate();
+    let [novaMateria, setNovaMateria] = useState("");
+    let [materias, setMaterias] = useState([]);
+    let [disabled, setDisabled] = useState(true);
+    const [formValues, setFormValues] = useState(null);
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
-  }
+    function addMateria() {
+        if (!disabled && novaMateria !== "") {
+            materias.push(novaMateria);
+            setMaterias(materias)
+            setNovaMateria("")
+        }
+    }
 
-  if (disabled === "disabled") {
-    icon = <PencilIcon />;
-  } else {
-    icon = <CheckIcon />;
-  }
-  const onclick = () => {
-    disabled === "" ? setDisabled("disabled") : setDisabled("");
-  };
+    function handleChangeMateria(event) {
+        setNovaMateria(
+            event.target.value
+        )
+    }
 
-  //TODO: Popular Informações vindas do banco de dados
-  useEffect(() => {}, []);
+    function handleChange(event) {
+        const {name, value} = event.target;
+        setFormValues({
+            ...formValues,
+            [name]: value,
+        });
+    }
 
-  //TODO: Função de Deletar Conta, chamar delete da api e redirecionar para login
-  const deleteAccount = () => {
-    console.log("Deletar Conta");
-  };
+    const toggleIcon = () => {
+        setDisabled(!disabled);
+    };
 
-  return (
-    <div className="profile">
-      <div className="profile_card-profile">
-        <div className="profile_icon-pencil">
-          <div onClick={onclick}>{icon}</div>
-        </div>
-        <div className="profile_card-inputs">
-          <Input
-            title="Nome"
-            name="nome"
-            onChange={handleChange}
-            disabled={disabled}
-            value={formValues.nome}
-          />
-          <Input
-            title="E-mail"
-            name="email"
-            onChange={handleChange}
-            disabled={disabled}
-            value={formValues.email}
-          />
-          <Input
-            title="Universidade"
-            name="universidade"
-            onChange={handleChange}
-            disabled={disabled}
-            value={formValues.universidade}
-          />
-          <div className="disciplinas">
-            <p>Disciplinas</p>
-            <div className="list-disciplinas">
-              {materias.map((materia, index) => (
-                <div key={index} className="materia-box">
-                  {materia}
+    function submitData() {
+        formValues.disciplines = materias;
+        api.put('/user', formValues).then(() => {
+            document.location.reload(true)
+        }).catch(error => toast.error("Não foi possível atualizar seus dados, verifique os campos."))
+    }
+
+    async function getInfoUser() {
+        try {
+            const response = await api.get("/user");
+            setFormValues(response.data);
+            setMaterias(response.data.disciplines)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    function retirarMateria(indexMat) {
+        if (!disabled) {
+            const newList = materias.filter((item, index) => index !== indexMat);
+
+            setMaterias(newList);
+        }
+    }
+
+    useEffect(() => {
+        getInfoUser();
+    }, []);
+    const deleteAccount = () => {
+        api.delete(
+            '/user'
+        ).then(() => {
+                localStorage.removeItem('token');
+                router("/home");
+            }
+        ).catch((error) => console.log(error))
+    };
+
+    return (
+        <div>
+            <Header/>
+            <div className="profile">
+                <div className="profile_card-profile">
+                    <div className="profile_icon-pencil">
+                        {disabled ? (
+                            <div onClick={toggleIcon}>
+                                <PencilIcon/>
+                            </div>
+                        ) : (
+                            <div onClick={submitData}>
+                                <CheckIcon/>
+                            </div>
+                        )}
+                    </div>
+                    <div className="profile_card-inputs">
+                        <Input
+                            title="Nome"
+                            name="name"
+                            onChange={handleChange}
+                            disabled={disabled}
+                            value={formValues?.name}
+                        />
+                        <Input
+                            title="E-mail"
+                            name="email"
+                            onChange={handleChange}
+                            disabled="disabled"
+                            value={formValues?.email}
+                        />
+                        <Input
+                            title="Universidade"
+                            name="college"
+                            onChange={handleChange}
+                            disabled={disabled}
+                            value={formValues?.college}
+                        />
+                        <div className="disciplinas">
+                            <p>Disciplinas</p>
+                            <div className="list-disciplinas">
+                                {materias.map((materia, index) => (
+                                    <div key={index} className="flex">
+                                        {materia !== "MYUNI" && <div className="materia-box">
+                                            {materia}
+                                        </div>}
+                                        {!disabled && materia !== "MYUNI" &&
+                                        <div className="materia-box pointer" onClick={() => retirarMateria(index)}>
+                                            X
+                                        </div>}
+                                    </div>
+                                ))}
+                                {!disabled && <div className="add-materia">
+                                    <Input style={{
+                                        background: "white"
+                                    }} onChange={handleChangeMateria} value={novaMateria} disabled={disabled}
+                                           placeholder="Nova Materia"/>
+                                    <div className="button_add " onClick={addMateria}>
+                                        +
+                                    </div>
+                                </div>}
+                            </div>
+                        </div>
+                    </div>
+                    {!disabled ? (
+                        <div className="profile_card-delete-account">
+                            <button className="deleteButton" onClick={deleteAccount}>
+                                Excluir Conta
+                            </button>
+                        </div>
+                    ) : null}
                 </div>
-              ))}
             </div>
-          </div>
         </div>
-        {disabled === "" ? (
-          <div onClick={deleteAccount} className="profile_card-delete-account">
-            Excluir Conta
-          </div>
-        ) : null}
-      </div>
-    </div>
-  );
+    );
 }
 
 export default Profile;

@@ -13,7 +13,7 @@ function Home() {
       </section>
       <section className="home_content">
         <article className="card">
-          <a className="card_content" href="#">
+          <a className="card_content" href="/notebook">
             <img
               className="card_icon"
               src={CardernoDigitalImg}
