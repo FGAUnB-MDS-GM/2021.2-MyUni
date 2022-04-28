@@ -237,6 +237,11 @@ h4 a {
 .logo-myuni {
   width: 60rem;
 }
+
+.img_mvp{
+  width: 800px;
+}
+
 @media (max-width: 767px) {
   .logo-myuni {
     width: 90%;
