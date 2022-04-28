@@ -63,3 +63,12 @@ class UserModel(MongoDBMixin):
             return {}
 
         return self.user_collection.find_one({"_id": mongo_id}) or {}
+
+    def update_user(self, user_id: str, update_modifications: Dict) -> bool:
+        try:
+            mongo_id = ObjectId(user_id)
+        except BSONError:
+            return False
+
+        updated = self.user_collection.find_one_and_update({"_id": mongo_id}, {"$set": update_modifications})
+        return True if updated else False

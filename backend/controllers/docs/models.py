@@ -22,3 +22,9 @@ class Discipline(BaseModel):
 
 class DisciplineCode(BaseModel):
     discipline_code: str
+
+
+class UpgradableUser(BaseModel):
+    name: str | None = None
+    college: str | None = None
+    disciplines: list[str] | None = None
