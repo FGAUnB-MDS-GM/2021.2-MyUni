@@ -42,7 +42,7 @@ def reply_comment(reply: Reply, jwt: str = Depends(jwt_scheme)):
         return JSONResponse({"message": "Unauthorized"}, status_code=status.HTTP_401_UNAUTHORIZED)
 
     username = UserModel().retrieve_user_by_id(user_id).get("name")
-    reply_entity = ReplyEntity(user_id, reply.reply, username)
+    reply_entity = ReplyEntity(user_id, username, reply.reply)
     if not reply_entity.is_valid():
         return JSONResponse({"message": "reply isn't valid"})
 
@@ -66,3 +66,14 @@ def delete_comment(comment: CommentId, jwt: str = Depends(jwt_scheme)):
         {"message": "success" if deleted else "Not found"},
         status_code=status_code
     )
+
+
+@comment_router.get("/{forum_id}/{comment_id}")
+def get_comment(forum_id, comment_id):
+    comment = ForumModel().get_comment(forum_id, comment_id)
+    comment_data = {"data": comment} if comment else {}
+
+    status_code = status.HTTP_200_OK if comment else status.HTTP_404_NOT_FOUND
+    return JSONResponse({
+        "message": "success" if comment else "Not found", **comment_data
+    }, status_code=status_code)
