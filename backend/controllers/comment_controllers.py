@@ -19,7 +19,7 @@ def comment_in_forum(comment: Comment, jwt: str = Depends(jwt_scheme)):
     if not user_id:
         return JSONResponse({"message": "Unauthorized"}, status_code=status.HTTP_401_UNAUTHORIZED)
 
-    comment_entity = CommentEntity(user_id, comment.comment)
+    comment_entity = CommentEntity(user_id, comment.comment, comment.title, comment.topic)
 
     if not comment_entity.is_valid():
         return JSONResponse({"message": "comment isn't valid"}, status_code=status.HTTP_400_BAD_REQUEST)
