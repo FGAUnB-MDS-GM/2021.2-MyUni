@@ -24,7 +24,8 @@ function FormRegistration() {
   }
   function onSubmit(event) {
     event.preventDefault();
-    handleRegistration(formValues.name, formValues.email, formValues.password);
+    const name = `${formValues.name} ${formValues.lastName}`;
+    handleRegistration(name, formValues.email, formValues.password);
   }
   return (
     <form className="formRegistration" onSubmit={onSubmit}>
