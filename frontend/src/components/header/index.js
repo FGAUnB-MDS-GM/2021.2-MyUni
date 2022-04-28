@@ -6,7 +6,7 @@ import Loader from "../Loader";
 import { useEffect, useState } from "react";
 import api from "../../service/api";
 
-function Header({ atualizarName }) {
+function Header( ) {
   const [name, setName] = useState(null);
   function getInfoUser() {
     api
