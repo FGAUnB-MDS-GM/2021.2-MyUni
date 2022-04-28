@@ -2,6 +2,7 @@ import {forwardRef, useImperativeHandle, useState} from "react";
 import {XIcon} from "@heroicons/react/outline";
 import Modal from "../modal";
 import "./styles.scss";
+import Input from "../Input"
 import ForumTopic from "../forumTopic";
 
 function ForumModal({ forum }, ref) {
@@ -42,12 +43,21 @@ function ForumModal({ forum }, ref) {
                 </main>
               </div>
               <div className="forumModal_responses">
-                  {
-                      values.responses?.map((resposta)=> {
-                          return <ForumTopic description={resposta.description} user={resposta.autor}/>
-                      })
-                  }
+                {
+                    values.responses?.map((resposta)=> {
+                        return <ForumTopic description={resposta.description} user={resposta.autor}/>
+                    })
+                }
               </div>
+              <footer>
+                <Input
+                  name="response"
+                  type="textarea"
+                  placeholder="Resposta"
+                  value={values.response}
+                  onChange={(event) => handleChange(event)}
+                  />
+              </footer>
             </div>
           </article>
         </div>
