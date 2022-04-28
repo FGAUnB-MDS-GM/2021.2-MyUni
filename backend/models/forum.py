@@ -66,3 +66,15 @@ class ForumModel(MongoDBMixin):
             array_filters=[{"comment.comment_id": {"$eq": comment_id}}]
         )
         return True if updated else False
+
+    def get_forum_by_id(self, forum_id: str):
+        try:
+            mongo_id = ObjectId(forum_id)
+        except BSONError:
+            return False
+
+        forum = self.forum_collection.find_one({"_id": mongo_id}) or {}
+        if forum:
+            forum["forum_id"] = str(forum.pop("_id"))
+
+        return forum
