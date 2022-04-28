@@ -5,8 +5,10 @@ import {useEffect, useState} from "react";
 import CheckIcon from "../../components/CheckIcon";
 import api from "../../service/api";
 import Header from "../../components/header";
+import {useNavigate} from "react-router-dom";
 
 function Profile() {
+    const router = useNavigate();
     let [novaMateria, setNovaMateria] = useState("");
     let [materias, setMaterias] = useState([]);
     let [disabled, setDisabled] = useState(true);
@@ -63,16 +65,17 @@ function Profile() {
         }
     }
 
-    //TODO: Popular Informações vindas do banco de dados
     useEffect(() => {
         getInfoUser();
     }, []);
-
-    //TODO: Função de Deletar Conta, chamar delete da api e redirecionar para login
     const deleteAccount = () => {
         api.delete(
             '/user'
-        ).then().catch((error)=>console.log(error))
+        ).then(()=>{
+                localStorage.removeItem('token');
+                router("/home");
+        }
+        ).catch((error)=>console.log(error))
     };
 
     return (
@@ -139,7 +142,7 @@ function Profile() {
                             </div>
                         </div>
                     </div>
-                    {disabled === "" ? (
+                    {!disabled ? (
                         <div onClick={deleteAccount} className="profile_card-delete-account">
                             Excluir Conta
                         </div>
