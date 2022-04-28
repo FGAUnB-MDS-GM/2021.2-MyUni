@@ -1,12 +1,8 @@
 import './styles.scss'
 
 function CheckIcon() {
-        //TODO: Função para atualização dos dados
-        const oi = () => {
-                console.log("Confirmar Envio de Dados")
-        }
     return (
-        <div onClick={oi}>
+        <div>
                 <svg x="0px" y="0px"
                      width="25px" height="25px" viewBox="0 0 528.899 528.899">
                         <g>
