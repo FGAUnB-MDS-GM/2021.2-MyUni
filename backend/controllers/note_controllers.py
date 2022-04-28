@@ -2,8 +2,7 @@ from fastapi import APIRouter, status, Depends
 from fastapi.responses import JSONResponse
 from fastapi.security import APIKeyHeader
 
-from views.user_serializer import user_serializer
-from controllers.docs.models import RegistrableNote, UpgradableNote
+from controllers.docs.models import RegistrableNote, UpgradableNote, NoteId
 from utils.jwt_gateway import JWTGateway
 from models.note import Note, NoteModel
 
@@ -54,7 +53,14 @@ def update_note(jwt: str = Depends(jwt_scheme)):
 
 
 @note_router.delete("")
-def delete_note(jwt: str = Depends(jwt_scheme)):
+def delete_note(note_id: NoteId, jwt: str = Depends(jwt_scheme)):
     user_id = JWTGateway().retrieve_payload(jwt).get("user_id")
     if not user_id:
         return JSONResponse({"message": "Unauthorized"}, status_code=status.HTTP_401_UNAUTHORIZED)
+
+    deleted = NoteModel().delete_note(note_id.note_id)
+    status_code = status.HTTP_200_OK if deleted else status.HTTP_404_NOT_FOUND
+    return JSONResponse(
+        {"message": "success" if deleted else "Not found"},
+        status_code=status_code
+    )

@@ -51,3 +51,7 @@ class UpgradableNote(BaseModel):
     title: str | None = None
     note: str | None = None
     topic: str | None = None
+
+
+class NoteId(BaseModel):
+    note_id: str

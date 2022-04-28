@@ -47,3 +47,12 @@ class NoteModel(MongoDBMixin):
             _note["note_id"] = str(_note.pop("_id"))
 
         return notes
+
+    def delete_note(self, note_id: str) -> bool:
+        try:
+            mongo_id = ObjectId(note_id)
+        except BSONError:
+            return False
+
+        delete_response = self.note_collection.delete_one({"_id": mongo_id})
+        return True if delete_response.deleted_count else False
