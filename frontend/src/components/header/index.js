@@ -31,7 +31,7 @@ function Header({ atualizarName }) {
         <ul>
           <li>
             <a
-              className={location.pathname === "/home" ? "navActive" : ""}
+              className={location.pathname.includes("/home") ? "navActive" : ""}
               href="/home"
             >
               Home
@@ -39,7 +39,9 @@ function Header({ atualizarName }) {
           </li>
           <li>
             <a
-              className={location.pathname === "/notebook" ? "navActive" : ""}
+              className={
+                location.pathname.includes("/notebook") ? "navActive" : ""
+              }
               href="/notebook"
             >
               Caderno Digital
@@ -47,7 +49,9 @@ function Header({ atualizarName }) {
           </li>
           <li>
             <a
-              className={location.pathname === "/forum" ? "navActive" : ""}
+              className={
+                location.pathname.includes("/forum") ? "navActive" : ""
+              }
               href="/forum"
             >
               Fórum

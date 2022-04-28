@@ -36,6 +36,7 @@
           font-weight: 400;
           font-size: 1em;
           color: #525252;
+          min-height: 2rem;
           max-height: 4rem;
           overflow: hidden;
           -webkit-mask-image: linear-gradient(
@@ -63,7 +64,13 @@
         font-weight: 300;
         color: #969696;
       }
+      h4 {
+        font-size: 1em;
+        font-weight: 300;
+        color: #969696;
 
+        line-height: normal;
+      }
       &_label {
         display: flex;
         align-items: center;
@@ -77,10 +84,13 @@
 
         > h4 {
           font-weight: 400;
+          color: white;
+          font-size: 1em;
+
+          line-height: normal;
         }
       }
-
-      &_comment {
+      &_trash {
         display: flex;
         width: 3.1rem;
         height: 1.4rem;
@@ -92,6 +102,20 @@
 
         :nth-child(1) {
           color: white;
+          height: 1rem;
+        }
+      }
+      &_comment {
+        display: flex;
+        width: 3.1rem;
+        height: 1.4rem;
+        align-items: center;
+        justify-content: space-evenly;
+        border-radius: 0.3rem;
+        padding: 0.1rem;
+
+        :nth-child(1) {
+          color: black;
           height: 1rem;
         }
       }

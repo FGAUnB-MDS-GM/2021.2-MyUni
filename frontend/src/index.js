@@ -47,14 +47,8 @@ ReactDOM.render(
             }
           ></Route>
 
-          <Route
-            path="/forum/:topic"
-            element={
-              <PrivateRoute>
-                <ForumTopicPage />
-              </PrivateRoute>
-            }
-          />
+          <Route path="/forum/:topic" element={<ForumTopicPage />} />
+
           <Route
             path="/notebook"
             element={

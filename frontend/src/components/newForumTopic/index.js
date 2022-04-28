@@ -2,8 +2,10 @@ import { useState } from "react";
 import Input from "../Input";
 import Button from "../Button";
 import "./styles.scss";
+import api from "../../service/api";
+import { toast } from "react-toastify";
 
-export default function NewForumTopic() {
+export default function NewForumTopic({ NewQuestion }) {
   const defaultInputValues = {
     question: "",
     description: "",
@@ -18,9 +20,21 @@ export default function NewForumTopic() {
       [name]: value,
     });
   }
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    //requisição para api;
+    try {
+      await api.post("/comment", {
+        forum_id: "626a17a840619b67935aa831",
+        comment: values.description,
+        title: values.question,
+        topic: values.topic,
+      });
+      NewQuestion();
+      setFormValues(defaultInputValues);
+    } catch (error) {
+      toast.error("não foi possível criar uma pergunta!");
+      console.log(error);
+    }
   }
   return (
     <form className="newForumTopic " onSubmit={handleSubmit}>
