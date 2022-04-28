@@ -279,6 +279,10 @@ h4 a {
   margin-top: 20px;
 }
 
+.diplay-list {
+  list-style: circle;
+}
+
 .drop-caps p:first-child::first-letter {
   color: #030303;
   display: block;

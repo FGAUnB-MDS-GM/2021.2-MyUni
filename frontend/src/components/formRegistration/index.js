@@ -22,7 +22,6 @@ function FormRegistration() {
       [name]: value,
     });
   }
-  //TODO: Fazer o registro do usuário no banco
   function onSubmit(event) {
     event.preventDefault();
     handleRegistration(formValues.name, formValues.email, formValues.password);

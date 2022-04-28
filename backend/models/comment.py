@@ -4,10 +4,13 @@ from uuid import uuid4
 
 
 class Comment:
-    def __init__(self, user_id: str, comment: str, replies: list[Dict] = None):
+    def __init__(self, user_id: str, comment: str, title: str, topic: str, username: str, replies: list[Dict] = None):
         self.user_id = user_id
         self.comment = comment
         self.replies = replies if replies else []
+        self.title = title
+        self.topic = topic
+        self.username = username
 
         now = datetime.utcnow().isoformat()
         self.created_at = now
@@ -19,6 +22,9 @@ class Comment:
             "user_id": self.user_id,
             "replies": self.replies,
             "comment": self.comment,
+            "topic": self.topic,
+            "title": self.title,
+            "username": self.username,
             "created_at": self.created_at,
             "updated_at": self.updated_at
         }

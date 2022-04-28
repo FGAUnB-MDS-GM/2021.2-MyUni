@@ -33,6 +33,8 @@ class UpgradableUser(BaseModel):
 class Comment(BaseModel):
     forum_id: str
     comment: str
+    title: str
+    topic: str
 
 
 class Reply(BaseModel):
@@ -48,6 +50,7 @@ class RegistrableNote(BaseModel):
 
 
 class UpgradableNote(BaseModel):
+    note_id: str
     title: str | None = None
     note: str | None = None
     topic: str | None = None
@@ -55,3 +58,7 @@ class UpgradableNote(BaseModel):
 
 class NoteId(BaseModel):
     note_id: str
+
+
+class CommentId(BaseModel):
+    comment_id: str

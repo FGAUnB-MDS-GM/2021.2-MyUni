@@ -23,6 +23,9 @@
   gap: 0;
   position: relative;
   overflow: hidden;
+  &_clean_note {
+    width: 1.4rem;
+  }
   &_close_button {
     width: 1.4rem;
     height: 1.4rem;

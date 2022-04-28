@@ -1,40 +1,34 @@
-import { useRef } from "react";
+import {useEffect, useRef, useState} from "react";
 import Layout from "../../components/layout";
 import NewNotebookTopic from "../../components/newNotebookTopic";
 import NotebookTopic from "../../components/notebookTopic";
 import "./styles.scss";
 import NotebookModal from "../../components/notebookModal";
+import api from "../../service/api";
+import NewForumTopic from "../../components/newForumTopic";
+import {toast} from "react-toastify";
+import ModalForum from "../../components/modalForum";
 
 function Notebook() {
+  let [notebookTopic, setNotebookTopic] = useState([]);
+
+  function getNotes(){
+    api.get('/note').then((dados)=>{
+      setNotebookTopic(dados.data.data);
+    }).catch(()=>{
+      toast("Sem Anotações")
+    })
+  }
+
+  useEffect(()=>{
+    getNotes()
+  }, [])
   const modalRef = useRef();
 
   function openNotebookModal(topic) {
     modalRef.current.handleOpenModal(topic);
   }
 
-  const notebookTopic = [
-    {
-      title: "Anotações da aula",
-      description:
-        "Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019Conteúdo de Calculo 1 do dia 27/07/2019",
-      label: "Calculo 1",
-    },
-    {
-      title: "Anotações da aula",
-      description: "Conteúdo de DIAC do dia 27/07/2019",
-      label: "DIAC",
-    },
-    {
-      title: "Anotações da aula",
-      description: "Conteúdo de Calculo 1 do dia 27/07/2019",
-      label: "Calculo 1",
-    },
-    {
-      title: "Anotações da aula",
-      description: "Conteúdo de DIAC do dia 27/07/2019",
-      label: "DIAC",
-    },
-  ];
   return (
     <Layout title="Caderno Digital">
       <div id="notebook" className="notebook">
@@ -46,32 +40,19 @@ function Notebook() {
                   console.log("clicked");
                   openNotebookModal(topic);
                 }}
-                photo={topic.photo}
                 title={topic.title}
-                description={topic.description}
-                user={topic.user}
-                label={topic.label}
+                description={topic.note}
+                label={topic.topic}
               />
             );
           })}
         </div>
         <div className="notebook_aside">
           <NewNotebookTopic />
-          <aside className="notebook_aside_sidebar">
-            <h3>Tópicos</h3>
-            {notebookTopic.map((topic) => {
-              return (
-                <ul>
-                  <li>
-                    <a href="">{topic.label}</a>
-                  </li>
-                </ul>
-              );
-            })}
-          </aside>
         </div>
       </div>
-      <NotebookModal notebook="012" ref={modalRef} />
+      <NewNotebookTopic/>
+      <NotebookModal ref={modalRef} />
     </Layout>
   );
 }

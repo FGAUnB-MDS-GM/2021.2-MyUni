@@ -2,15 +2,25 @@ import { useState } from "react";
 import Input from "../Input";
 import Button from "../Button";
 import "./styles.scss";
+import api from "../../service/api";
+import {toast} from "react-toastify";
 
 export default function NewForumTopic() {
   const defaultInputValues = {
     title: "",
-    description: "",
+    note: "",
     topic: "",
   };
   const [values, setFormValues] = useState(defaultInputValues);
 
+  function adicionarAnotacao(){
+      api.post('note', values).then(()=>{
+              document.location.reload(true)
+      }
+      ).catch((error)=>{
+          toast.error("Não foi possível adicionar essa anotação")
+      })
+  }
   function handleChange(event) {
     const { value, name } = event.target;
     setFormValues({
@@ -33,10 +43,10 @@ export default function NewForumTopic() {
         onChange={(event) => handleChange(event)}
       />
       <Input 
-        name="description" 
+        name="note"
         type="textarea" 
         placeholder="Descrição" 
-        value={values.description}
+        value={values.note}
         onChange={(event) => handleChange(event)}
       />
       <Input 
@@ -47,7 +57,7 @@ export default function NewForumTopic() {
         onChange={(event) => handleChange(event)}
       />
       <div className="notebook_aside_form_button">
-        <Button label="Adicionar" />
+        <button onClick={adicionarAnotacao} className="buttonAdd">Adicionar</button>
       </div>
     </form>
   );

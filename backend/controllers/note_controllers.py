@@ -46,10 +46,27 @@ def register_note(note: RegistrableNote, jwt: str = Depends(jwt_scheme)):
 
 
 @note_router.put("")
-def update_note(jwt: str = Depends(jwt_scheme)):
+def update_note(note: UpgradableNote, jwt: str = Depends(jwt_scheme)):
     user_id = JWTGateway().retrieve_payload(jwt).get("user_id")
     if not user_id:
         return JSONResponse({"message": "Unauthorized"}, status_code=status.HTTP_401_UNAUTHORIZED)
+
+    title_modifications = {"title": note.title} if note.title is not None else {}
+    note_modifications = {"note": note.note} if note.note is not None else {}
+    topic_modifications = {"topic": note.topic} if note.topic is not None else {}
+
+    update_modifications = {
+        **title_modifications,
+        **note_modifications,
+        **topic_modifications
+    }
+
+    updated = NoteModel().update_note(note.note_id, update_modifications)
+    status_code = status.HTTP_200_OK if updated else status.HTTP_400_BAD_REQUEST
+    return JSONResponse(
+        {"message": "success" if updated else "error when updating note in database"},
+        status_code=status_code
+    )
 
 
 @note_router.delete("")

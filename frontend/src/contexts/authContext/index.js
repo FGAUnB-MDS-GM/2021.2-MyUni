@@ -41,7 +41,7 @@ export default function Auth() {
       router("/home");
     } catch (error) {
       console.log(error.message);
-      toast.error("Não foi possível realizar o login");
+      toast.error("Não foi possível realizar o cadastro, verifique os campos do formulario.");
     }
   }
   return { handleLogin, handleLogout, handleRegistration };

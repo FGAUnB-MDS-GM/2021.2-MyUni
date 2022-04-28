@@ -5,15 +5,18 @@ import {useEffect, useState} from "react";
 import CheckIcon from "../../components/CheckIcon";
 import api from "../../service/api";
 import Header from "../../components/header";
+import {useNavigate} from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Profile() {
+    const router = useNavigate();
     let [novaMateria, setNovaMateria] = useState("");
     let [materias, setMaterias] = useState([]);
     let [disabled, setDisabled] = useState(true);
     const [formValues, setFormValues] = useState(null);
 
     function addMateria() {
-        if (!disabled) {
+        if (!disabled && novaMateria !== "") {
             materias.push(novaMateria);
             setMaterias(materias)
             setNovaMateria("")
@@ -42,7 +45,7 @@ function Profile() {
         formValues.disciplines = materias;
         api.put('/user', formValues).then(() => {
             document.location.reload(true)
-        }).catch(error => console.log(error))
+        }).catch(error => toast.error("Não foi possível atualizar seus dados, verifique os campos."))
     }
 
     async function getInfoUser() {
@@ -63,16 +66,17 @@ function Profile() {
         }
     }
 
-    //TODO: Popular Informações vindas do banco de dados
     useEffect(() => {
         getInfoUser();
     }, []);
-
-    //TODO: Função de Deletar Conta, chamar delete da api e redirecionar para login
     const deleteAccount = () => {
         api.delete(
             '/user'
-        ).then().catch((error)=>console.log(error))
+        ).then(() => {
+                localStorage.removeItem('token');
+                router("/home");
+            }
+        ).catch((error) => console.log(error))
     };
 
     return (
@@ -103,7 +107,7 @@ function Profile() {
                             title="E-mail"
                             name="email"
                             onChange={handleChange}
-                            disabled={disabled}
+                            disabled="disabled"
                             value={formValues?.email}
                         />
                         <Input
@@ -118,11 +122,11 @@ function Profile() {
                             <div className="list-disciplinas">
                                 {materias.map((materia, index) => (
                                     <div key={index} className="flex">
-                                        <div className="materia-box">
+                                        {materia !== "MYUNI" && <div className="materia-box">
                                             {materia}
-                                        </div>
-                                        {!disabled &&
-                                        <div className="materia-box" onClick={() => retirarMateria(index)}>
+                                        </div>}
+                                        {!disabled && materia !== "MYUNI" &&
+                                        <div className="materia-box pointer" onClick={() => retirarMateria(index)}>
                                             X
                                         </div>}
                                     </div>
@@ -132,16 +136,18 @@ function Profile() {
                                         background: "white"
                                     }} onChange={handleChangeMateria} value={novaMateria} disabled={disabled}
                                            placeholder="Nova Materia"/>
-                                    <div className="button_add" onClick={addMateria}>
+                                    <div className="button_add " onClick={addMateria}>
                                         +
                                     </div>
                                 </div>}
                             </div>
                         </div>
                     </div>
-                    {disabled === "" ? (
-                        <div onClick={deleteAccount} className="profile_card-delete-account">
-                            Excluir Conta
+                    {!disabled ? (
+                        <div className="profile_card-delete-account">
+                            <button className="deleteButton" onClick={deleteAccount}>
+                                Excluir Conta
+                            </button>
                         </div>
                     ) : null}
                 </div>

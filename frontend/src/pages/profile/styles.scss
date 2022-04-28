@@ -74,7 +74,10 @@
 }
 .button_add{
   font-size: 30px;
-
+  cursor: pointer;
+}
+.pointer{
+  cursor: pointer;
 }
 .add-materia{
   align-items: center;
@@ -84,14 +87,12 @@
 }
 .list-disciplinas{
   display: flex;
+  gap: 5px;
   flex-direction: column;
   padding: 5px 10px 5px 10px;
   height: 100%;
   background-color: #f0f0f0;
   border-radius: 10px;
-  > div {
-    margin-top: 5px;
-  }
 }
 
 .glass {
@@ -110,7 +111,10 @@
 
 }
 
+.deleteButton{
+  color:red
+}
+
 .profile_card-delete-account:hover{
-  cursor: pointer;
   color: #de1010;
 }

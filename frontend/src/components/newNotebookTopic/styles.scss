@@ -22,9 +22,10 @@
     display: flex;
     justify-content: center;
     & button {
-      width: 40%;
-      padding: 0.6rem 0;
+      width: 50%;
+      padding: 0.6rem;
       background-color: #387498;
+      border-radius: 10px;
       font-size: 1.3em;
       font-weight: 600;
       &:hover {
@@ -32,4 +33,8 @@
       }
     }
   }
+}
+
+.buttonAdd {
+  font-size: 8px;
 }
