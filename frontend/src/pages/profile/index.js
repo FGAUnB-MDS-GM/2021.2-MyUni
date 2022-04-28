@@ -15,7 +15,7 @@ function Profile() {
     const [formValues, setFormValues] = useState(null);
 
     function addMateria() {
-        if (!disabled && novaMateria!=="") {
+        if (!disabled && novaMateria !== "") {
             materias.push(novaMateria);
             setMaterias(materias)
             setNovaMateria("")
@@ -71,11 +71,11 @@ function Profile() {
     const deleteAccount = () => {
         api.delete(
             '/user'
-        ).then(()=>{
+        ).then(() => {
                 localStorage.removeItem('token');
                 router("/home");
-        }
-        ).catch((error)=>console.log(error))
+            }
+        ).catch((error) => console.log(error))
     };
 
     return (
@@ -121,10 +121,10 @@ function Profile() {
                             <div className="list-disciplinas">
                                 {materias.map((materia, index) => (
                                     <div key={index} className="flex">
-                                        <div className="materia-box">
+                                        {materia !== "MYUNI" && <div className="materia-box">
                                             {materia}
-                                        </div>
-                                        {!disabled &&
+                                        </div>}
+                                        {!disabled && materia !== "MYUNI" &&
                                         <div className="materia-box pointer" onClick={() => retirarMateria(index)}>
                                             X
                                         </div>}
