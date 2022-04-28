@@ -29,7 +29,7 @@ class User:
             "user_type": self.user_type,
             "email": self.email,
             "college": self.college,
-            "disciplines": self.disciplines,
+            "disciplines": ["MYUNI"],
             "created_at": self.created_at,
             "updated_at": self.updated_at
         }

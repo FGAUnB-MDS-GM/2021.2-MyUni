@@ -33,6 +33,8 @@ class UpgradableUser(BaseModel):
 class Comment(BaseModel):
     forum_id: str
     comment: str
+    title: str
+    topic: str
 
 
 class Reply(BaseModel):
