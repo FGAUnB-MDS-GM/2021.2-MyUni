@@ -3,14 +3,13 @@ import Input from "../../components/Input";
 import PencilIcon from "../../components/PencilIcon";
 import { useEffect, useState } from "react";
 import CheckIcon from "../../components/CheckIcon";
-import {api} from "../../service/api";
+import { api } from "../../service/api";
 
 function Profile() {
   //TODO: PEGAR MATERIAS DA API E PREENCHER ESSE ARRAY
   let materias = ["MDS", "GPEQ", "PED"];
-  let [disabled, setDisabled] = useState("disabled");
+  let [disabled, setDisabled] = useState(true);
   const [formValues, setFormValues] = useState(null);
-  let icon;
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -20,28 +19,31 @@ function Profile() {
     });
   }
 
-  if (disabled === "disabled") {
-    icon = <PencilIcon />;
-  } else {
-    icon = <CheckIcon />;
-  }
-  const onclick = () => {
-    disabled === "" ? setDisabled("disabled") : setDisabled("");
+  const toggleIcon = () => {
+    setDisabled(!disabled);
   };
-
-  function getInfoUser(){
-    api.get('/user', {
-      headers: {
-        'Authorization': localStorage.getItem('token')
-      }
-    }).then((dado) => {
-      setFormValues(dado.data);
-    })
+  async function submitData() {
+    toggleIcon();
+    try {
+      api.put("/user", {
+        formValues,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  async function getInfoUser() {
+    try {
+      const response = await api.get("/user");
+      setFormValues(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   //TODO: Popular Informações vindas do banco de dados
   useEffect(() => {
-    getInfoUser()
+    getInfoUser();
   }, []);
 
   //TODO: Função de Deletar Conta, chamar delete da api e redirecionar para login
@@ -53,7 +55,15 @@ function Profile() {
     <div className="profile">
       <div className="profile_card-profile">
         <div className="profile_icon-pencil">
-          <div onClick={onclick}>{icon}</div>
+          {disabled ? (
+            <div onClick={toggleIcon}>
+              <PencilIcon />
+            </div>
+          ) : (
+            <div onClick={submitData}>
+              <CheckIcon />
+            </div>
+          )}
         </div>
         <div className="profile_card-inputs">
           <Input
