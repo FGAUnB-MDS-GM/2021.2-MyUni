@@ -15,7 +15,7 @@ function Profile() {
     const [formValues, setFormValues] = useState(null);
 
     function addMateria() {
-        if (!disabled) {
+        if (!disabled && novaMateria!=="") {
             materias.push(novaMateria);
             setMaterias(materias)
             setNovaMateria("")
@@ -106,7 +106,7 @@ function Profile() {
                             title="E-mail"
                             name="email"
                             onChange={handleChange}
-                            disabled={disabled}
+                            disabled="disabled"
                             value={formValues?.email}
                         />
                         <Input
@@ -125,7 +125,7 @@ function Profile() {
                                             {materia}
                                         </div>
                                         {!disabled &&
-                                        <div className="materia-box" onClick={() => retirarMateria(index)}>
+                                        <div className="materia-box pointer" onClick={() => retirarMateria(index)}>
                                             X
                                         </div>}
                                     </div>
@@ -135,7 +135,7 @@ function Profile() {
                                         background: "white"
                                     }} onChange={handleChangeMateria} value={novaMateria} disabled={disabled}
                                            placeholder="Nova Materia"/>
-                                    <div className="button_add" onClick={addMateria}>
+                                    <div className="button_add " onClick={addMateria}>
                                         +
                                     </div>
                                 </div>}
@@ -143,8 +143,10 @@ function Profile() {
                         </div>
                     </div>
                     {!disabled ? (
-                        <div onClick={deleteAccount} className="profile_card-delete-account">
-                            Excluir Conta
+                        <div className="profile_card-delete-account">
+                            <button className="deleteButton" onClick={deleteAccount}>
+                                Excluir Conta
+                            </button>
                         </div>
                     ) : null}
                 </div>

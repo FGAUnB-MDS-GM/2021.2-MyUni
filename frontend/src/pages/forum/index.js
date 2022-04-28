@@ -66,7 +66,6 @@ function Forum() {
     <Layout title="Fórum">
       <div id="forum" className="forum">
         <div className="forum_content">
-          <SearchInput />
           {forumTopic.map((topic, index) => {
             return (
               <ForumTopic

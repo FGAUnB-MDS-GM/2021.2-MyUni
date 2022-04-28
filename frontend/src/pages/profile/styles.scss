@@ -74,7 +74,10 @@
 }
 .button_add{
   font-size: 30px;
-
+  cursor: pointer;
+}
+.pointer{
+  cursor: pointer;
 }
 .add-materia{
   align-items: center;
@@ -110,7 +113,10 @@
 
 }
 
+.deleteButton{
+  color:red
+}
+
 .profile_card-delete-account:hover{
-  cursor: pointer;
   color: #de1010;
 }
