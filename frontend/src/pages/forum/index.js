@@ -26,7 +26,6 @@ function Forum() {
     <Layout title="Fórum">
       <div id="forum" className="forum">
         <div className="forum_content">
-          <SearchInput />
           {forum?.comments.map((comment) => {
             return <ForumTopic topic={comment} />;
           })}
