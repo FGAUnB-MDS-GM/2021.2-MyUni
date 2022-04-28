@@ -6,6 +6,7 @@ import CheckIcon from "../../components/CheckIcon";
 import api from "../../service/api";
 import Header from "../../components/header";
 import {useNavigate} from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Profile() {
     const router = useNavigate();
@@ -15,7 +16,7 @@ function Profile() {
     const [formValues, setFormValues] = useState(null);
 
     function addMateria() {
-        if (!disabled && novaMateria!=="") {
+        if (!disabled && novaMateria !== "") {
             materias.push(novaMateria);
             setMaterias(materias)
             setNovaMateria("")
@@ -44,7 +45,7 @@ function Profile() {
         formValues.disciplines = materias;
         api.put('/user', formValues).then(() => {
             document.location.reload(true)
-        }).catch(error => console.log(error))
+        }).catch(error => toast.error("Não foi possível atualizar seus dados, verifique os campos."))
     }
 
     async function getInfoUser() {
@@ -71,11 +72,11 @@ function Profile() {
     const deleteAccount = () => {
         api.delete(
             '/user'
-        ).then(()=>{
+        ).then(() => {
                 localStorage.removeItem('token');
                 router("/home");
-        }
-        ).catch((error)=>console.log(error))
+            }
+        ).catch((error) => console.log(error))
     };
 
     return (
@@ -121,10 +122,10 @@ function Profile() {
                             <div className="list-disciplinas">
                                 {materias.map((materia, index) => (
                                     <div key={index} className="flex">
-                                        <div className="materia-box">
+                                        {materia !== "MYUNI" && <div className="materia-box">
                                             {materia}
-                                        </div>
-                                        {!disabled &&
+                                        </div>}
+                                        {!disabled && materia !== "MYUNI" &&
                                         <div className="materia-box pointer" onClick={() => retirarMateria(index)}>
                                             X
                                         </div>}
