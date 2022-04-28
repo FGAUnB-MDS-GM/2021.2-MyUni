@@ -85,3 +85,18 @@ class ForumModel(MongoDBMixin):
             update={"$pull": {"comments": {"comment_id": comment_id}}}
         )
         return True if delete_response else False
+
+    def get_comment(self, forum_id: str, comment_id: str) -> Dict:
+        try:
+            mongo_id = ObjectId(forum_id)
+        except BSONError:
+            return {}
+
+        forum = self.forum_collection.find_one({"_id": mongo_id}) or {}
+        comments = forum.get("comments")
+
+        for comment in comments:
+            if comment.get("comment_id") == comment_id:
+                return comment
+
+        return {}

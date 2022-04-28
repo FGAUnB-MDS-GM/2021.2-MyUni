@@ -66,3 +66,14 @@ def delete_comment(comment: CommentId, jwt: str = Depends(jwt_scheme)):
         {"message": "success" if deleted else "Not found"},
         status_code=status_code
     )
+
+
+@comment_router.get("/{forum_id}/{comment_id}")
+def get_comment(forum_id, comment_id):
+    comment = ForumModel().get_comment(forum_id, comment_id)
+    comment_data = {"data": comment} if comment else {}
+
+    status_code = status.HTTP_200_OK if comment else status.HTTP_404_NOT_FOUND
+    return JSONResponse({
+        "message": "success" if comment else "Not found", **comment_data
+    }, status_code=status_code)
