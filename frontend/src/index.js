@@ -11,6 +11,7 @@ import ForumTopicPage from "./pages/forum/[topic]";
 import Notebook from "./pages/notebook";
 import { AuthContextProvider } from "./contexts/authContext";
 import PrivateRoute from "./components/privateRoute";
+import { ToastContainer } from "react-toastify";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -63,6 +64,8 @@ ReactDOM.render(
             }
           />
         </Routes>
+
+        <ToastContainer />
       </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
