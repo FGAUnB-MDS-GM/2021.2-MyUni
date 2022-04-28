@@ -39,3 +39,15 @@ class Reply(BaseModel):
     forum_id: str
     comment_id: str
     reply: str
+
+
+class RegistrableNote(BaseModel):
+    title: str
+    note: str
+    topic: str
+
+
+class UpgradableNote(BaseModel):
+    title: str | None = None
+    note: str | None = None
+    topic: str | None = None

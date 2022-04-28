@@ -9,6 +9,7 @@ from controllers.forum_controllers import forum_router
 from controllers.user_controller import user_router
 from controllers.disciplines_controllers import disciplines_router
 from controllers.comment_controllers import comment_router
+from controllers.note_controllers import note_router
 
 
 app = FastAPI()
@@ -16,6 +17,7 @@ app.include_router(forum_router)
 app.include_router(user_router)
 app.include_router(disciplines_router)
 app.include_router(comment_router)
+app.include_router(note_router)
 
 app.add_middleware(
     CORSMiddleware,
