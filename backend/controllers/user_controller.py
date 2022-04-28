@@ -92,5 +92,15 @@ def update_user(upgradable_user: UpgradableUser, jwt: str = Depends(jwt_scheme))
 
 
 @user_router.delete("")
-def delete_user():
-    pass
+def delete_user(jwt: str = Depends(jwt_scheme)):
+    user_id = JWTGateway().retrieve_payload(jwt).get("user_id")
+    if not user_id:
+        return JSONResponse({"message": "Unauthorized"}, status_code=status.HTTP_401_UNAUTHORIZED)
+
+    deleted = UserModel().delete_user(user_id)
+    status_code = status.HTTP_200_OK if deleted else status.HTTP_400_BAD_REQUEST
+
+    return JSONResponse(
+        {"message": "success" if deleted else "error when deleting user in database"},
+        status_code=status_code
+    )
