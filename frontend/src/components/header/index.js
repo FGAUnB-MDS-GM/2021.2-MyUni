@@ -4,15 +4,11 @@ import { useLocation } from "react-router-dom";
 import "./styles.scss";
 import Loader from "../Loader";
 import {useEffect, useState} from "react";
-import {api} from "../../service/api";
+import api from "../../service/api";
 
-function Header({ title }) {
-
+function Header({atualizarName}) {
   const [name, setName] = useState(null)
   function getInfoUser(){
-    if (localStorage.getItem("nameUser")){
-      setName(localStorage.getItem("nameUser"))
-    } else {
       api.get('/user', {
         headers: {
           'Authorization': localStorage.getItem("token")
@@ -21,7 +17,6 @@ function Header({ title }) {
         localStorage.setItem("nameUser", dado.data.name)
         setName(localStorage.getItem("nameUser"))
       })
-    }
   }
   useEffect(()=>{
     getInfoUser()
