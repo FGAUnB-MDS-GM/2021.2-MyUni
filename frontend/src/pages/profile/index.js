@@ -6,6 +6,7 @@ import CheckIcon from "../../components/CheckIcon";
 import api from "../../service/api";
 import Header from "../../components/header";
 import {useNavigate} from "react-router-dom";
+import { toast } from "react-toastify";
 
 function Profile() {
     const router = useNavigate();
@@ -44,7 +45,7 @@ function Profile() {
         formValues.disciplines = materias;
         api.put('/user', formValues).then(() => {
             document.location.reload(true)
-        }).catch(error => console.log(error))
+        }).catch(error => toast.error("Não foi possível atualizar seus dados, verifique os campos."))
     }
 
     async function getInfoUser() {
