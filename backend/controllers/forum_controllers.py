@@ -51,3 +51,19 @@ def register_forums(discipline_code: DisciplineCode):
         return JSONResponse({"message": "success"}, status_code=status.HTTP_201_CREATED)
 
     return JSONResponse({"message": "Error in database"}, status_code=status.HTTP_400_BAD_REQUEST)
+
+
+@forum_router.get("/{forum_id}")
+def get_forum(forum_id, jwt: str = Depends(jwt_scheme)):
+    user_id = JWTGateway().retrieve_payload(jwt).get("user_id")
+    if not user_id:
+        return JSONResponse({"message": "Unauthorized"}, status_code=status.HTTP_401_UNAUTHORIZED)
+
+    forum = ForumModel().get_forum_by_id(forum_id)
+    forum_data = {"data": forum} if forum else {}
+
+    status_code = status.HTTP_200_OK if forum else status.HTTP_404_NOT_FOUND
+    return JSONResponse(
+        {"message": "success" if forum else "Not found", **forum_data},
+        status_code=status_code
+    )
