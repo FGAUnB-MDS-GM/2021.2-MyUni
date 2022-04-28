@@ -78,3 +78,10 @@ class ForumModel(MongoDBMixin):
             forum["forum_id"] = str(forum.pop("_id"))
 
         return forum
+
+    def delete_comment(self, comment_id: str) -> bool:
+        delete_response = self.forum_collection.find_one_and_update(
+            filter={"_id": ObjectId("626a1bcc100d8bf3b6e3635e")},
+            update={"$pull": {"comments": {"comment_id": comment_id}}}
+        )
+        return True if delete_response else False
