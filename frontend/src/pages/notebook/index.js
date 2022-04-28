@@ -51,7 +51,6 @@ function Notebook() {
           <NewNotebookTopic />
         </div>
       </div>
-      <NewNotebookTopic/>
       <NotebookModal ref={modalRef} />
     </Layout>
   );
