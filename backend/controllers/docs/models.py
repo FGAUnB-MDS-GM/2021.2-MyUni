@@ -58,3 +58,7 @@ class UpgradableNote(BaseModel):
 
 class NoteId(BaseModel):
     note_id: str
+
+
+class CommentId(BaseModel):
+    comment_id: str
