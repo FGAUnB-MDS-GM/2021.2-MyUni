@@ -42,7 +42,7 @@ def reply_comment(reply: Reply, jwt: str = Depends(jwt_scheme)):
         return JSONResponse({"message": "Unauthorized"}, status_code=status.HTTP_401_UNAUTHORIZED)
 
     username = UserModel().retrieve_user_by_id(user_id).get("name")
-    reply_entity = ReplyEntity(user_id, reply.reply, username)
+    reply_entity = ReplyEntity(user_id, username, reply.reply)
     if not reply_entity.is_valid():
         return JSONResponse({"message": "reply isn't valid"})
 
